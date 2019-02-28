@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <title>interactive SVG</title>
+        <style>
+            #p1 {
+                 width: 50vh;
+                 height: 50vh;
+            }
+        </style>
+	</head>
+	<body>
+        <figure id="pic">
+            <object data="p1.svg" type="image/svg+xml" id="p1">
+                <p>Вы используете устаревшую версию браузера, который не поддерживает векторные изображения.</p>
+            </object>
+            <figcaption>Расположение и назначение элементов управления</figcaption>
+        </figure>
+        <div>
+            <p>Диск</p>
+            <p>Громкоговоритель</p>
+            <p>Скоба</p>
+            <p>Индикатор включения</p>
+            <p>Выключатель автостопа</p>
+            <p>Регулятор тембра</p>
+            <p>Выключатель сети и регулятор громкости</p>
+            <p>Переключатель скоростей</p>
+            <p>Звукосниматель</p>
+        </div>
+	
+        <script>
+            $.fn.SVGAddClass = function (classTitle) {
+              return this.each(function() {
+                var oldClass = $(this).attr("class");
+                oldClass = oldClass ? oldClass : '';
+                $(this).attr("class", (oldClass+" "+classTitle).trim());
+              });
+            }
+            $.fn.SVGRemoveClass = function (classTitle) {
+              return this.each(function() {
+                  var oldClass = $(this).attr("class");
+                  var startpos = oldClass.indexOf(classTitle);
+                  var endpos = startpos + classTitle.length;
+                  var newClass = oldClass.substring(0, startpos).trim() + " " + oldClass.substring(endpos).trim();
+                  if (!newClass.trim())
+                    $(this).removeAttr("class");
+                  else
+                    $(this).attr("class", newClass.trim());
+              });
+            }
+
+            $(window).load(function () {
+              var svgobject = document.getElementById('p1'); 
+              if ('contentDocument' in svgobject)
+                var svgdom = svgobject.contentDocument;
+
+               $(svgdom.getElementsByClassName("cls-1")).hover(
+                function () {
+                  var id = $(this).attr("id");
+                  $("#"+id, svgdom).SVGAddClass("highlight");
+                }, 
+                function () {
+                  var id = $(this).attr("id");
+                  $("#"+id, svgdom).SVGRemoveClass("highlight");
+                }
+              ); 
+            });
+        </script>
+    </body>
+</html>
