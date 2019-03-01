@@ -1,8 +1,12 @@
 body, p, div {
 	margin: 0;
 }
-.cover {
+.title {
+	width: 100%;
+	height: 100%;
 	background-color: #f0f060;
+}
+.cover {
 	overflow: hidden;
 }
 .cover__left, .cover__right {
@@ -63,6 +67,9 @@ body, p, div {
 	-webkit-transform: rotate(-55deg);
 	transform: rotate(-55deg); /*-37deg == 33, -55deg == 45, -73deg == 78*/
 	transform-origin: right;
+	-o-transition: transform .5s;
+	-webkit-transition: transform .5s;
+  	transition: transform .5s;
 }
 .cover__image {
 	position: relative;
@@ -154,15 +161,16 @@ body, p, div {
 		linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
 		linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
 		repeating-radial-gradient(#000, #252826 2px, #000 3px);
-	-webkit-animation: swing .8s ease-in-out infinite alternate;
+	-webkit-animation: swing .7s ease-in-out infinite alternate;
 	animation: swing .7s ease-in-out infinite alternate;
 }
-.vinyl__base:after {
+.vinyl__shadow {
 	content:  '';
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	top: 0;
+	margin: 0;
 	border-radius: 50%;
 	background:
 		-webkit-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
@@ -254,7 +262,7 @@ body, p, div {
 		top: -80vw;
 		margin: 0 6.67vw;
 	}
-	.vinyl__base, .vinyl__base:after {
+	.vinyl__base, .vinyl__shadow {
 		top: 0;
 		margin: 0;
 		width: 186vw;
@@ -263,7 +271,8 @@ body, p, div {
 	}
 	.vinyl__label {
 		margin: 0;
-		top: 28%;
+		top: 53vw;
+		left: 53vw;
 		width: 80vw;
 		height: 80vw;
 		border-width: 10.67vw;
