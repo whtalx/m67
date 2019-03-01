@@ -1,85 +1,114 @@
-body, p {
+body, p, div {
 	margin: 0;
 }
 .cover {
-	background: #f0f060;
+	background-color: #f0f060;
 	overflow: hidden;
 }
-.cover__image {
-	z-index: 1;
+.cover__left, .cover__right {
+	display: inline-block;
 	position: relative;
-	left: 66%;
-	top: 10%;
-	width: 27.5vw;
+	vertical-align: top;
+	height: 100%;
+	width: 50%;
+}/*
+.cover__left {
+	background-color: rgba(255, 0, 0, .3);
+}
+.cover__right {
+	background-color: rgba(0, 255, 0, .3);
+}*/
+.speed_selector__text {
+	position: relative;
+	top: 45vh;
+	left: 9vh;
+	height: 11.25vh;
+	width: 37.5vh;
+	font-family: Impact;
+	font-size: 7.5vh;
+	color: black;
+	-ms-transform: rotate(35deg);
+	-webkit-transform: rotate(35deg);
+	transform: rotate(35deg);
+	transform-origin: center;
+}
+.speed_selector__33,.speed_selector__45,.speed_selector__78 {
+	display: inline-block;
+}
+.speed_selector__33 {
+	-ms-transform: rotate(15deg);
+	-webkit-transform: rotate(15deg);
+	transform: rotate(15deg);
+	transform-origin: bottom right;
+}
+.speed_selector__45 {
+	margin: 0 4.5vh;
+}
+.speed_selector__78 {
+	-ms-transform: rotate(-15deg);
+	-webkit-transform: rotate(-15deg);
+	transform: rotate(-15deg);
+	transform-origin: bottom left;
+}
+.speed_selector__arrow {
+	position: relative;
+	top: 25.5vh;
+	left: -7.5vh;
+	width: 0;
+	height: 0;
+	border: 3.75vh solid transparent;
+	border-right: 37.5vh solid transparent;
+	border-left: 15vh solid #5380c5;
+	-ms-transform: rotate(-55deg);
+	-webkit-transform: rotate(-55deg);
+	transform: rotate(-55deg); /*-37deg == 33, -55deg == 45, -73deg == 78*/
+	transform-origin: right;
+}
+.cover__image {
+	position: relative;
+	float: right;
+	top: 22.5vh;
+	right: 0;
+	width: 48.7vh;
 }
 .cover__title {
 	position: relative;
-	top: -6%;
-	left: 54.5%;
+	clear: right;
+	top: 22.5vh;
+	right: 4.8vh;
+	text-align: right;
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
 	font-weight: 900;
-	font-size: 7vw;
+	font-size: 6vh;
 	color: #635b3a;
-	transform: scale(.75, .9);
 }
 .cover__coursive {
 	position: relative;
-	top: -10%;
-	left: 51%;
+	clear: right;
+	top: 22.5vh;
+	right: 1.5vh;
+	text-align: right;
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
 	font-weight: 900;
-	font-size: 7vw;
+	font-size: 7.5vh;
 	color: #5a7ec4;
 }
 .cover__subheader {
 	position: relative;
-	top: -9%;
-	left: 77%;
+	clear: right;
+	top: 30vh;
+	right: 5.25vh;
+	text-align: right;
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
-	font-size: 2vw;
-	color: black;
-}
-.speed_selector__text {
-	position: relative;
-	top: 6%;
-	left:  16%;
-	font-family: Impact;
-	width: 30vw;
-	height: 10vw;
-	font-size: 5vw;
-	color: black;
-	transform: rotate(40deg);
-	transform-origin: center 0;
-}
-.speed_selector__33,.speed_selector__45,.speed_selector__78 {
-	display: inline;
-	width: 10vw;
-	height: 10vw;
-}
-.speed_selector__33 {
-	transform: rotate(55deg);
-	transform-origin: right;
-}
-.speed_selector__45 {
-	margin: 0 2vw;
-}
-.speed_selector__arrow {
-	position: relative;
-	top: 0;
-	left: 5%;
-	width: 0;
-	height: 0;
-	border: 3vw solid transparent;
-	border-right: 12vw solid transparent;
-	border-left: 12vw solid #5380c5;
-	transform: rotate(-74deg);
-	transform-origin: right;
+	font-size: 3.3vh;
+	color: #0e0f0e;
 }
 .page {
 	height:  100vh;
+	width: 112.44vh;
+	margin: 0 auto;
 }
 .page__paragraph {
-
 }
 .page__header {
 	text-align: center;
@@ -87,14 +116,19 @@ body, p {
 .page__subheader {
 
 }
+.third__scheme {
+	height: 50vh;
+	width: 50vh;
+}
 .vinyl {
 	position: absolute;
+	z-index: 0;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
-	width: 80vw;
-	height: 80vw;
-	top: -40vw;
-	margin: 0 10vw;
+	width: 105vh;
+	height: 105vh;
+	top: -45vh;
+	margin: 0 3.75vh;
 	overflow: hidden;
 }
 .vinyl__base {
@@ -103,15 +137,25 @@ body, p {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	border: 2vw solid #171715;
+	border: 1.5vh solid #0e0f0e;
 	box-sizing: border-box;
-	background: 
-		linear-gradient(10deg, transparent 40%, rgba(79, 77, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
-		linear-gradient(30deg, transparent 40%, rgba(79, 77, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
-		repeating-radial-gradient(#0d0e0e, #0d0e0e 1px, #252826 2px, #0d0e0e 3px);
-	background-size: 100%;
-	-webkit-animation: swing 1s ease-in-out infinite alternate;
-	animation: swing 1s ease-in-out infinite alternate;
+	background:
+		-webkit-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
+		-webkit-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
+		-webkit-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
+		-webkit-repeating-radial-gradient(#000, #252826 2px, #000 3px);
+	background:
+		-o-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
+		-o-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
+		-o-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
+		-o-repeating-radial-gradient(#000, #252826 2px, #000 3px);
+	background:
+		linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
+		linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
+		linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
+		repeating-radial-gradient(#000, #252826 2px, #000 3px);
+	-webkit-animation: swing .8s ease-in-out infinite alternate;
+	animation: swing .7s ease-in-out infinite alternate;
 }
 .vinyl__base:after {
 	content:  '';
@@ -121,12 +165,21 @@ body, p {
 	top: 0;
 	border-radius: 50%;
 	background:
-		linear-gradient(10deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		linear-gradient(20deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		linear-gradient(30deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		linear-gradient(40deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
-	background-size: 100% 100%;
-	-webkit-animation: rotate 1.8s linear infinite;
+		-webkit-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		-webkit-linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		-webkit-linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		-webkit-linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
+	background:
+		-o-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		-o-linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		-o-linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		-o-linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
+	background:
+		linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+		linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
+	-webkit-animation: rotate 1.3s linear infinite;
 	animation: rotate 1.3s linear infinite;
 }
 .vinyl__label {
@@ -134,15 +187,15 @@ body, p {
 	z-index: 2;
 	margin: 0;
 	box-sizing: border-box;
-	width: 44%;
-	height: 44%;
+	width: 45vh;
+	height: 45vh;
 	top: 28%;
 	left: 28%;
-	border: 5vw solid #171715;
+	border: 6vh solid #0e0f0e;
 	background-color: #5380c5;
 	background: url(lemz.svg) no-repeat bottom, #5380c5;
 	background-size: 50%;
-	-webkit-animation: rotate 1.8s linear infinite;
+	-webkit-animation: rotate 1.3s linear infinite;
 	animation: rotate 1.3s linear infinite;
 }
 @-webkit-keyframes "swing" {
@@ -159,5 +212,60 @@ body, p {
 }
 @keyframes "rotate" {
 	0% { transform:rotate(0deg); }
-	100% { transform:rotate(360deg);
+	100% { transform:rotate(360deg); }
+}
+/******************************************************************************************************************************/
+@media only screen and (orientation: portrait) {
+	.cover__left {
+		display: none;
+	}
+	.cover__right {
+		width: 100%;
+	}
+	.cover__image {
+		top: 40vw;
+		right: 0;
+		width: 86vw;
+	}
+	.cover__title {
+		top: 40vw;
+		right: 8.5vw;
+		font-size: 10.7vw;
+	}
+	.cover__coursive {
+		top: 40vw;
+		right: 2.7vw;
+		font-size: 13.3vw;
+	}
+	.cover__subheader {
+		top: 53.3vw;
+		right: 9.3vw;
+		font-size: 5.87vw;
+	}
+	.page {
+		height:  177.86vw;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.vinyl {
+		right: 0;
+		width: 187vw;
+		height: 187vw;
+		top: -80vw;
+		margin: 0 6.67vw;
+	}
+	.vinyl__base, .vinyl__base:after {
+		top: 0;
+		margin: 0;
+		width: 186vw;
+		height: 186vw;
+		border-width: 2.67vw;
+	}
+	.vinyl__label {
+		margin: 0;
+		top: 28%;
+		width: 80vw;
+		height: 80vw;
+		border-width: 10.67vw;
+	}
 }
