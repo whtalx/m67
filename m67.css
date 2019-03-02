@@ -22,7 +22,7 @@ body, p, div {
 .cover__right {
 	background-color: rgba(0, 255, 0, .3);
 }*/
-.speed_selector__text {
+.speed_selector__numbers {
 	position: relative;
 	top: 45vh;
 	left: 9vh;
@@ -30,13 +30,14 @@ body, p, div {
 	width: 37.5vh;
 	font-family: Impact;
 	font-size: 7.5vh;
-	color: black;
+	color: #0f0e0f;
 	-ms-transform: rotate(35deg);
 	-webkit-transform: rotate(35deg);
 	transform: rotate(35deg);
 	transform-origin: center;
 }
 .speed_selector__33,.speed_selector__45,.speed_selector__78 {
+	height: 6vh;
 	display: inline-block;
 }
 .speed_selector__33 {
@@ -46,7 +47,7 @@ body, p, div {
 	transform-origin: bottom right;
 }
 .speed_selector__45 {
-	margin: 0 4.5vh;
+	margin: 1vh 4.5vh 0;
 }
 .speed_selector__78 {
 	-ms-transform: rotate(-15deg);
@@ -81,19 +82,23 @@ body, p, div {
 .cover__title {
 	position: relative;
 	clear: right;
+	float: right;
 	top: 22.5vh;
 	right: 4.8vh;
+	height: 5vh;
 	text-align: right;
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
 	font-weight: 900;
 	font-size: 6vh;
-	color: #635b3a;
+	color: #0f0e0f;
 }
 .cover__coursive {
 	position: relative;
 	clear: right;
+	float: right;
 	top: 22.5vh;
 	right: 1.5vh;
+	height: 9vh;
 	text-align: right;
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
 	font-weight: 900;
@@ -106,8 +111,7 @@ body, p, div {
 	top: 30vh;
 	right: 5.25vh;
 	text-align: right;
-	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
-	font-size: 3.3vh;
+	font: bold 3.3vh "Trebuchet MS", Helvetica, sans-serif;
 	color: #0e0f0e;
 }
 .page {
@@ -238,11 +242,13 @@ body, p, div {
 	.cover__title {
 		top: 40vw;
 		right: 8.5vw;
+		height: 9vw;
 		font-size: 10.7vw;
 	}
 	.cover__coursive {
 		top: 40vw;
 		right: 2.7vw;
+		height: 16vw;
 		font-size: 13.3vw;
 	}
 	.cover__subheader {
