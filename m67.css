@@ -9,7 +9,7 @@ img {
 }
 .title {
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background-color: #f0f060;
 }
 .cover {
@@ -21,13 +21,11 @@ img {
 	vertical-align: top;
 	height: 100%;
 	width: 50%;
-}/*
-.cover__left {
-	background-color: rgba(255, 0, 0, .3);
 }
-.cover__right {
-	background-color: rgba(0, 255, 0, .3);
-}*/
+.cover__left {
+	-webkit-transition: visibility 0s linear .1s, opacity .1s ease-in;
+	transition: visibility 0s linear .1s, opacity .1s ease-in;
+}
 .speed_selector__numbers {
 	position: relative;
 	top: 45vh;
@@ -79,17 +77,14 @@ img {
   	transition: transform .5s;
 }
 .cover__image {
-	position: relative;
-	float: right;
+	position: absolute;
 	top: 22.5vh;
-	right: 0;
+	right: 1.5vh;
 	width: 48.7vh;
 }
 .cover__title {
-	position: relative;
-	clear: right;
-	float: right;
-	top: 22.5vh;
+	position: absolute;
+	top: 75vh;
 	right: 4.8vh;
 	height: 5vh;
 	text-align: right;
@@ -99,10 +94,8 @@ img {
 	color: #0f0e0f;
 }
 .cover__coursive {
-	position: relative;
-	clear: right;
-	float: right;
-	top: 22.5vh;
+	position: absolute;
+	top: 80vh;
 	right: 1.5vh;
 	height: 9vh;
 	text-align: right;
@@ -112,17 +105,16 @@ img {
 	color: #5a7ec4;
 }
 .cover__subheader {
-	position: relative;
-	clear: right;
-	top: 30vh;
+	position: absolute;
+	top: 90vh;
 	right: 5.25vh;
 	text-align: right;
 	font: bold 3.3vh "Trebuchet MS", Helvetica, sans-serif;
 	color: #0e0f0e;
 }
 .page {
-	height:  100vh;
-	width: 112.44vh;
+	height: 100vh;
+	width: 112.5vh;
 	margin: 0 auto;
 }
 .page__paragraph {
@@ -134,8 +126,8 @@ img {
 
 }
 .third__scheme {
-	height: 50vh;
-	width: 50vh;
+	height: 0;
+	width: 0;
 }
 .vinyl {
 	position: absolute;
@@ -181,7 +173,8 @@ img {
 	height: 100%;
 	top: 0;
 	margin: 0;
-	border-radius: 50%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
 	background:
 		-webkit-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
 		-webkit-linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
@@ -201,7 +194,7 @@ img {
 	animation: rotate 1.3s linear infinite;
 }
 .vinyl__label {
-	position: relative;
+	position: absolute;
 	z-index: 2;
 	margin: 0;
 	box-sizing: border-box;
@@ -233,7 +226,7 @@ img {
 	100% { transform:rotate(360deg); }
 }
 /******************************************************************************************************************************/
-@media only screen and (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	.cover__left {
 		display: none;
 	}
@@ -241,52 +234,118 @@ img {
 		width: 100%;
 	}
 	.cover__image {
-		top: 40vw;
-		right: 0;
-		width: 86vw;
+		top: initial;
+		bottom: 51vw;
+		right: 2.7vw;
+		width: 81vw;
 	}
 	.cover__title {
-		top: 40vw;
-		right: 8.5vw;
-		height: 9vw;
-		font-size: 10.7vw;
+		top: initial;
+		bottom: 33.5vw;
+		right: 8vw;
+		height: 8.4vw;
+		font-size: 10vw;
 	}
 	.cover__coursive {
-		top: 40vw;
+		top: initial;
+		bottom: 18.5vw;
 		right: 2.7vw;
-		height: 16vw;
-		font-size: 13.3vw;
+		height: 15vw;
+		font-size: 12.5vw;
 	}
 	.cover__subheader {
-		top: 53.3vw;
-		right: 9.3vw;
-		font-size: 5.87vw;
+		top: initial;
+		bottom: 10.5vw;
+		right: 8.7vw;
+		font-size: 5.5vw;
 	}
 	.page {
-		height:  177.86vw;
 		width: 100%;
-		margin: 0 auto;
+		height: 100%;
+		margin: 0;
 	}
 	.vinyl {
 		right: 0;
-		width: 187vw;
-		height: 187vw;
-		top: -80vw;
-		margin: 0 6.67vw;
+		width: 175.4vw;
+		height: 175.4vw;
+		top: -75vw;
+		margin: 0 6vw;
 	}
 	.vinyl__base, .vinyl__shadow {
 		top: 0;
 		margin: 0;
-		width: 186vw;
-		height: 186vw;
-		border-width: 2.67vw;
+		width: 175.4vw;
+		height: 175.4vw;
+		border-width: 2.5vw;
 	}
 	.vinyl__label {
 		margin: 0;
-		top: 53vw;
-		left: 53vw;
-		width: 80vw;
-		height: 80vw;
-		border-width: 10.67vw;
+		top: 50vw;
+		left: 50vw;
+		width: 75vw;
+		height: 75vw;
+		border-width: 10vw;
 	}
+}
+@media screen and (min-aspect-ratio: 9/15) and (max-aspect-ratio: 45/40) {
+	.cover__left {
+		display: none;
+	}
+	.cover__right {
+		width: 100%;
+	}
+	.cover__image {
+		top: initial;
+		bottom: 31.35vh;
+		right: 1.5vh;
+		width: 48.7vh;
+	}
+	.cover__title {
+		top: initial;
+		bottom: 20vh;
+		right: 4.8vh;
+		height: 5vh;
+		font-size: 6vh;
+	}
+	.cover__coursive {
+		top: initial;
+		bottom: 11vh;
+		right: 1.5vh;
+		height: 9vh;
+		font-size: 7.5vh;
+	}
+	.cover__subheader {
+		top: initial;
+		bottom:6.2vh;
+		right: 5.3vh;
+		font-size:3.3vh;
+	}
+	.page {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+	.vinyl {
+		right: 0;
+		width: 105vh;
+		height: 105vh;
+		top: -45vh;
+		margin: 0 3.75vh;
+	}
+	.vinyl__base, .vinyl__shadow {
+		top: 0;
+		margin: 0;
+		width: 105vh;
+		height: 105vh;
+	}
+	.vinyl__base {
+		border-width: 1.5vh;
+	}
+	.vinyl__label {
+		margin: 0;
+		top: 30vh;
+		left: 30vh;
+		width: 45vh;
+		height: 45vh;
+		border-width: 6vh;
 }
