@@ -7,12 +7,45 @@ img {
 	-ms-user-select: none;
 	user-select: none;
 }
+.page {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	text-align: center;
+}
+.page__paragraph {
+    width: 90%;
+	margin-left: 5%;
+    text-align: justify;
+	font: 1.25em Georgia, serif;
+}
+.page__paragraph_caption {
+	font: italic 1em Georgia, serif;
+	text-align: center;
+}
+.page__header, .page__subheader {
+	width: 100%;
+	text-align: center;
+}
+.page__header {
+	font: small-caps bold 1.5em Georgia, serif;
+
+	margin: 5% auto -5%;
+}
+.page__subheader {
+	font: bold 1.25em Georgia, serif;
+	margin: 10% auto 5%;
+}
 .title {
 	width: 100%;
 	height: 100vh;
 	background-color: #f0f060;
 }
 .cover {
+	height: 100vh;
+	width: 112.5vh;
+	margin: 0 auto;
 	overflow: hidden;
 }
 .cover__left, .cover__right {
@@ -26,7 +59,7 @@ img {
 	-webkit-transition: visibility 0s linear .1s, opacity .1s ease-in;
 	transition: visibility 0s linear .1s, opacity .1s ease-in;
 }
-.speed_selector__numbers {
+.speed-selector__numbers {
 	position: relative;
 	top: 45vh;
 	left: 9vh;
@@ -40,26 +73,26 @@ img {
 	transform: rotate(35deg);
 	transform-origin: center;
 }
-.speed_selector__33,.speed_selector__45,.speed_selector__78 {
+.speed-selector__33,.speed-selector__45,.speed-selector__78 {
 	height: 6vh;
 	display: inline-block;
 }
-.speed_selector__33 {
+.speed-selector__33 {
 	-ms-transform: rotate(15deg);
 	-webkit-transform: rotate(15deg);
 	transform: rotate(15deg);
 	transform-origin: bottom right;
 }
-.speed_selector__45 {
+.speed-selector__45 {
 	margin: 1vh 4.5vh 0;
 }
-.speed_selector__78 {
+.speed-selector__78 {
 	-ms-transform: rotate(-15deg);
 	-webkit-transform: rotate(-15deg);
 	transform: rotate(-15deg);
 	transform-origin: bottom left;
 }
-.speed_selector__arrow {
+.speed-selector__arrow {
 	position: relative;
 	top: 25.5vh;
 	left: -7.5vh;
@@ -67,14 +100,14 @@ img {
 	height: 0;
 	border: 3.75vh solid transparent;
 	border-right: 37.5vh solid transparent;
-	border-left: 15vh solid #5380c5;
+	border-left: 15vh solid #5a7ec4;
 	-ms-transform: rotate(-55deg);
 	-webkit-transform: rotate(-55deg);
 	transform: rotate(-55deg); /*-37deg == 33, -55deg == 45, -73deg == 78*/
 	transform-origin: right;
 	-o-transition: transform .5s;
 	-webkit-transition: transform .5s;
-  	transition: transform .5s;
+	transition: transform .5s;
 }
 .cover__image {
 	position: absolute;
@@ -111,23 +144,6 @@ img {
 	text-align: right;
 	font: bold 3.3vh "Trebuchet MS", Helvetica, sans-serif;
 	color: #0e0f0e;
-}
-.page {
-	height: 100vh;
-	width: 112.5vh;
-	margin: 0 auto;
-}
-.page__paragraph {
-}
-.page__header {
-	text-align: center;
-}
-.page__subheader {
-
-}
-.third__scheme {
-	height: 0;
-	width: 0;
 }
 .vinyl {
 	position: absolute;
@@ -198,11 +214,11 @@ img {
 	z-index: 2;
 	margin: 0;
 	box-sizing: border-box;
-	width: 45vh;
-	height: 45vh;
-	top: 28%;
-	left: 28%;
-	border: 6vh solid #0e0f0e;
+	width: 36%;
+	height: 36%;
+	top: 32%;
+	left: 32%;
+	border: 5vh solid #0e0f0e;
 	background-color: #5380c5;
 	background: url(lemz.svg) no-repeat bottom, #5380c5;
 	background-size: 50%;
@@ -225,8 +241,60 @@ img {
 	0% { transform:rotate(0deg); }
 	100% { transform:rotate(360deg); }
 }
-/******************************************************************************************************************************/
+.first {
+	height: 100vh;
+	text-align: center;
+}
+.first .page__paragraph {
+	height: initial;
+	margin: auto;
+}
+.scheme {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	margin: auto;
+}
+.scheme__image {
+	width: 45%;
+	margin: 0;
+}
+.scheme__caption {
+	font: italic 1em Georgia, serif;
+	text-align: center;
+}
+.scheme__menu {
+	width: 40%;
+	margin: 0;
+	list-style: decimal inside;
+	font: 1em Georgia, serif;
+}
+.scheme__menu > * {
+	padding-left: 1%;
+	cursor: pointer;
+}
+.scheme__slider {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	border: .1em solid black;
+	-webkit-border-radius: .2em;
+	border-radius: .2em;
+	-o-transition: top .2s;
+	-webkit-transition: top .2s;
+	transition: top .2s;
+}
 @media screen and (orientation: portrait) {
+	.cover {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
 	.cover__left {
 		display: none;
 	}
@@ -235,9 +303,9 @@ img {
 	}
 	.cover__image {
 		top: initial;
-		bottom: 51vw;
+		bottom: 52.5vw;
 		right: 2.7vw;
-		width: 81vw;
+		width: 81.1vw;
 	}
 	.cover__title {
 		top: initial;
@@ -255,14 +323,9 @@ img {
 	}
 	.cover__subheader {
 		top: initial;
-		bottom: 10.5vw;
-		right: 8.7vw;
+		bottom: 10.4vw;
+		right: 8.8vw;
 		font-size: 5.5vw;
-	}
-	.page {
-		width: 100%;
-		height: 100%;
-		margin: 0;
 	}
 	.vinyl {
 		right: 0;
@@ -274,20 +337,32 @@ img {
 	.vinyl__base, .vinyl__shadow {
 		top: 0;
 		margin: 0;
-		width: 175.4vw;
-		height: 175.4vw;
+		width: 100%;
+		height: 100%;
 		border-width: 2.5vw;
 	}
 	.vinyl__label {
 		margin: 0;
-		top: 50vw;
-		left: 50vw;
-		width: 75vw;
-		height: 75vw;
-		border-width: 10vw;
+		width: 36%;
+		height: 36%;
+		top: 32%;
+		left: 32%;
+		border-width: 8.5vw;
+	}
+	.scheme__image {
+		width: 90%;
+	}
+	.scheme__menu {
+		width: 90%;
+		padding: 0;
 	}
 }
-@media screen and (min-aspect-ratio: 9/15) and (max-aspect-ratio: 45/40) {
+@media screen and (min-aspect-ratio: 9/15) and (max-aspect-ratio: 9/8) {
+	.cover {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
 	.cover__left {
 		display: none;
 	}
@@ -320,11 +395,6 @@ img {
 		right: 5.3vh;
 		font-size:3.3vh;
 	}
-	.page {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-	}
 	.vinyl {
 		right: 0;
 		width: 105vh;
@@ -335,17 +405,18 @@ img {
 	.vinyl__base, .vinyl__shadow {
 		top: 0;
 		margin: 0;
-		width: 105vh;
-		height: 105vh;
+		width: 100%;
+		height: 100%;
 	}
 	.vinyl__base {
 		border-width: 1.5vh;
 	}
 	.vinyl__label {
 		margin: 0;
-		top: 30vh;
-		left: 30vh;
-		width: 45vh;
-		height: 45vh;
-		border-width: 6vh;
+		width: 36%;
+		height: 36%;
+		top: 32%;
+		left: 32%;
+		border-width: 5vh;
+	}
 }

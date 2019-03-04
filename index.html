@@ -4,21 +4,23 @@
     <title>Электрофон «Молодёжный»</title>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="m67.js"></script>
+    <script src="speed-selector.js"></script>
     <link href="m67.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+
     <section class="title">
-      <div class="cover page">
+      <div class="cover">
         <div class="vinyl">
           <div class="vinyl vinyl__base"><div class="vinyl vinyl__shadow"><div class="vinyl vinyl__label"></div></div></div>
         </div>
         <div class="cover__left">
-          <div class="speed_selector__arrow"></div>
-          <div class="speed_selector__numbers">
-            <img class="speed_selector__33" src="33.svg" alt="33"><img class="speed_selector__45" src="45.svg" alt="45"><img class="speed_selector__78" src="78.svg" alt="78">
+          <div class="speed-selector__arrow"></div>
+          <div class="speed-selector__numbers">
+            <img class="speed-selector__33" src="33.svg" alt="33"><img class="speed-selector__45" src="45.svg" alt="45"><img class="speed-selector__78" src="78.svg" alt="78">
           </div>
         </div><div class="cover__right">
-          <img class="cover__image" src="record_player--halftone.svg">
+          <img class="cover__image" src="record-player_halftone.svg">
           <img class="cover__title" src="electrophone.svg" alt="Электрофон">
           <img class="cover__coursive" src="juvenile.svg" alt="„Молодёжный“">
           <div class="cover__subheader">Краткое руководство</div>
@@ -26,89 +28,92 @@
       </div>
     </section>
 
-    <div class="first page">
-      <div class="page__paragraph">Поздравляем! Вы стали обладателем электрофона «Молодёжный». Это руководство поможет Вам освоить необходимые навыки для прослушивания грамзаписей.</div>
-    </div>
+    <section class="first page">
+      <div class="first page__paragraph">Поздравляем! Вы стали обладателем электрофона «Молодёжный».<br>Это руководство поможет Вам освоить необходимые навыки для прослушивания грамзаписей.</div>
+    </section>
 
-    <div class="second page">
-      <h1 class="page__header">I. Описание</h1>
-      <h2 class="page__header page__subheader">Общие сведения</h2>
+    <section class="second page">
+      <h1 class="page__header">i. описание</h1>
+      <h2 class="page__subheader">Общие сведения</h2>
       <div class="page__paragraph">Электрофон — аппарат для воспроизведения звука с грампластинок, имеющий в своем составе усилитель сигнала и акустическую систему. Это значит, что Вам не потребуется никаких дополнительных устройств.</div>
       <div class="page__paragraph">Электрофон «Молодёжный» представляет сообой ламповый переносной монофонический электрофон III класса с питанием от сети переменного тока.</div>
-    </div>
+    </section>
 
-    <div class="third page">
-    <figure class="third__scheme">
-          <object data="p1.svg" type="image/svg+xml" id="p1">
-              <p>Вы используете устаревшую версию браузера, который не поддерживает векторные изображения.</p>
-          </object>
-          <figcaption>Расположение и назначение элементов управления</figcaption>
-      </figure>
-      <div>
-        <div>Диск</div>
-        <div>Громкоговоритель</div>
-        <div>Скоба</div>
-        <div>Индикатор включения</div>
-        <div>Выключатель автостопа</div>
-        <div>Регулятор тембра</div>
-        <div>Выключатель сети и регулятор громкости</div>
-        <div>Переключатель скоростей</div>
-        <div>Звукосниматель</div>
+    <section class="third page">
+      <h2 class="page__subheader">Расположение и назначение элементов управления</h2>
+      <div class="scheme">
+        <figure class="scheme__image">
+            <object class="scheme__svg" data="scheme.svg" type="image/svg+xml">
+                <p class="scheme__caption">Вы используете устаревшую версию браузера, который не поддерживает векторные изображения.</p>
+            </object>
+        </figure>
+        <ol class="scheme__menu">
+          <li class="scheme__disc">Диск</li>
+          <li class="scheme__speaker">Громкоговоритель</li>
+          <li class="scheme__clamp">Скоба</li>
+          <li class="scheme__tonearm">Звукосниматель</li>
+          <li class="scheme__speed">Переключатель скоростей</li>
+          <li class="scheme__autostop">Выключатель автостопа</li>
+          <li class="scheme__volume">Выключатель сети и регулятор громкости</li>
+          <li class="scheme__tone">Регулятор тембра</li>
+          <li class="scheme__fusebox">Индикатор включения</li>
+        </ol>
+        <div class="scheme__slider"></div>
       </div>
-    </div>
+    </section>
 
-    <div class="fourth page">
-      <h2 class="page__header page__subheader">Возможности</h2>
+    <section class="fourth page">
+      <h2 class="page__subheader">Возможности</h2>
       <div class="page__paragraph">Электрофон предназначен для электроакустического воспроизведения грампластинок на скоростях 33⅓, 45 и 78 об/мин любых размеров.</div>
       <div class="page__paragraph">Виниловые грампластинки («долгоиграющие»). Рассчитанны на воспроизведение на скорости 33⅓ или 45 об/мин. Для их воспроизведения установите переключатель игл на звукоснимателе в положение «МОНО».</div>
       <div class="page__paragraph">Гибкие грампластинки воспроизводятся аналогично виниловым.</div>
-    </div>
+    </section>
 
-    <div class="fifth page">
+    <section class="fifth page">
       <div class="page__paragraph">Ранние грампластинки (чаще всего называют «шеллачными», или «патефонными») проигрываются на скорости 78 об/мин. Их несложно отличить: толстые, тяжёлые и хрупкие. Обращайтесь с ними с большой осторожностью! Для их воспроизведения установите переключатель игл в положение «78».</div>
-    </div>
+    </section>
 
-    <div class="sixth page">
+    <section class="sixth page">
       <h1 class="page__header">II. Инструкция</h1>
-      <h2 class="page__header page__subheader">Установка головки звукоснимателя</h2>
+      <h2 class="page__subheader">Установка головки звукоснимателя</h2>
       <div class="page__paragraph">Если в звукоснимателе не установлена головка, либо Вы хотите её заменить, следуйте данной инструкции. В случае отсутсвия необходимости, нажмите для перехода к следующей инструкции.<link href="#"></link></div>
-    </div>
+    </section>
 
-    <div class="seventh page">
-      <div class="page__paragraph">Все манипуляции с головками производятся в нижнем положении переключателя игл ("78" на звукоснимателе).</div>
+    <section class="seventh page">
+      <div class="page__paragraph">Все манипуляции с головками производятся в нижнем положении переключателя игл («78» на звукоснимателе).</div>
       <div class="page__paragraph">Не прикасайтесь к корундовым иглам!</div>
-    </div>
+    </section>
 
-    <div class="eighth page">
+    <section class="eighth page">
       <div class="page__paragraph">Освободите звукосниматель от скобы крепления.</div>
       <div class="page__paragraph">Возьмите головку звукоснимателя между большим и указательным пальцами. Вставьте заднюю часть головки в звукосниматель, затем переднюю до щелчка.</div>
       <div class="page__paragraph">Cнятие головки в звукосниматель производится в обратном порядке. Поддерживая звукосниматель указательным пальцем, большим пальцем осторожно вытолкните головку.</div>
-    </div>
+    </section>
 
-    <div class="ninth page">
-      <h2 class="page__header page__subheader">Воспроизведение грамзаписей</h2>
+    <section class="ninth page">
+      <h2 class="page__subheader">Воспроизведение грамзаписей</h2>
       <div class="page__paragraph">После хранения электрофона в холодном помещении или перевозки в зимних условиях необходимо прогреть его до комнатной температуры в выключенном состоянии.</div>
       <div class="page__paragraph">Освободите шнур питания и вставьте вилку в штепсельную розетку сети переменного тока. Поверните ручку регулятора громкости по часовой стрелке; при этом должен прослушиваться щелчок, а на колодке переключателя загореться индикатор включения.</div>
       <div class="page__paragraph">Ламповая электротехника требует особого обращения, перед проигрыванием электрофон нужно прогреть в течение 2-3 минут.</div>
-    </div>
+    </section>
 
-    <div class="tenth page">
+    <section class="tenth page">
       <div class="page__paragraph">Положите пластинку на диск. Установите переключатель скорости и переключатель игл в положение, соответствующее пластинке, которую собираетесь проигрывать.</div>
       <div class="page__paragraph">Приподнимите звукосниматель за специальный выступ и отведите вправо до упора, это включит электродвигатель. Во время работы электродвигателя отверстие на шильдике с надписью «ВКЛ» перекрыто планкой красного цвета.</div>
       <div class="page__paragraph">Перед проигрыванием пластинку рекомендуется очистить. Это следует производить мягкой щёткой или безворсовой салфеткой, перемещая её от края к центру пластинки.</div>
       <div class="page__paragraph">Переведите звукосниматель влево, расположите торцевой выступ головки над началом записи, которую Вы желаете прослушать, и осторожно, не прилагая усилий, опустите его.</div>
       <div class="page__paragraph">Громкость можно установить поворотом ручки регулятора громкости, тембр звучания — ручкой регулятора тембра.</div>
-    </div>
+    </section>
 
-    <div class="eleventh page">
+    <section class="eleventh page">
       <div class="page__paragraph">Электрофон имеет устройсто автоматического выключения электродвигателя по окончании проигрывания стандартной пластинки. Для воспроизведения нестандартных пластинок ручку выключателя автостопа установите в положение «ВЫКЛ».</div>
       <div class="page__paragraph">Выключение двигателя производится при включённом автостопе перемещением звукоснимателя влево за центр диска.</div>
-    </div>
+    </section>
 
-    <div  class="twelveth page">
+    <section  class="twelveth page">
       <div class="page__paragraph">Закончив проигрывание, убедитесь в том, что двигатель выключен и <strong>обязательно</strong> переведите ручку переключателя скоростей в положение «0». В противном случае Вы испортите проигрывающее устройство электрофона.</div>
       <div class="page__paragraph">Установите звукосниматель на опору и закрепите скобой.</div>
       <div class="page__paragraph">Выключите электрофон, повернув ручку регулятора громкости против часовой стрелки до упора. Отключите электрофон от сети.</div>
-    </div>
+    </section>
   </body>
 </html>
