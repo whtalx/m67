@@ -22,15 +22,14 @@ $.fn.SVGRemoveClass = function (classTitle) {
 $(window).load(function () {
   var scheme__svg = $('.scheme__svg')[0],
       $scheme__menu = $('.scheme__menu'),
-      selectedItem = defaultSelect = $('.scheme__disc')[0],
+      selectedItem = defaultSelect = document.getElementById('disc'),
       $scheme__slider = $('.scheme__slider');
 
   if ('contentDocument' in scheme__svg) {
     var
       svgdom = scheme__svg.contentDocument;
 
-    $('#'+$(defaultSelect).attr('class'), svgdom).SVGAddClass('highlight');
-    defaultSelect.classList.add('scheme__menu_selected');
+    $('#'+$(defaultSelect).attr('id'), svgdom).SVGAddClass('highlight');
     moveSlider(defaultSelect);
     setTimeout(showSlider, 200);
 
@@ -43,15 +42,13 @@ $(window).load(function () {
       function select(node) {
         
         if (selectedItem) {
-          selectedItem.classList.remove('scheme__menu_selected');
-          var className = $(selectedItem).attr('class');
-          $('#'+className, svgdom).SVGRemoveClass('highlight');
+          var elementId = $(selectedItem).attr('id');
+          $('#'+elementId, svgdom).SVGRemoveClass('highlight');
         }
 
         selectedItem = node;
-        var className = $(selectedItem).attr('class');
-        $('#'+className, svgdom).SVGAddClass('highlight');
-        selectedItem.classList.add('scheme__menu_selected');
+        var elementId = $(selectedItem).attr('id');
+        $('#'+elementId, svgdom).SVGAddClass('highlight');
 
         moveSlider(node);
       }

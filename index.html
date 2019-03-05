@@ -3,9 +3,10 @@
   <head>
     <title>Электрофон «Молодёжный»</title>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <script src="m67.js"></script>
     <script src="speed-selector.js"></script>
+    <script src="scheme.js"></script>
     <link href="m67.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 
@@ -48,15 +49,15 @@
             </object>
         </figure>
         <ol class="scheme__menu">
-          <li class="scheme__disc">Диск</li>
-          <li class="scheme__speaker">Громкоговоритель</li>
-          <li class="scheme__clamp">Скоба</li>
-          <li class="scheme__tonearm">Звукосниматель</li>
-          <li class="scheme__speed">Переключатель скоростей</li>
-          <li class="scheme__autostop">Выключатель автостопа</li>
-          <li class="scheme__volume">Выключатель сети и регулятор громкости</li>
-          <li class="scheme__tone">Регулятор тембра</li>
-          <li class="scheme__fusebox">Индикатор включения</li>
+          <li class="scheme__menu-element" id="disc">1. &nbsp;Диск</li>
+          <li class="scheme__menu-element" id="speaker">2. &nbsp;Громкоговоритель</li>
+          <li class="scheme__menu-element" id="clamp">3. &nbsp;Скоба</li>
+          <li class="scheme__menu-element" id="tonearm">4. &nbsp;Звукосниматель</li>
+          <li class="scheme__menu-element" id="speed">5. &nbsp;Переключатель скоростей</li>
+          <li class="scheme__menu-element" id="autostop">6. &nbsp;Выключатель автостопа</li>
+          <li class="scheme__menu-element" id="volume">7. &nbsp;Выключатель сети и регулятор громкости</li>
+          <li class="scheme__menu-element" id="tone">8. &nbsp;Регулятор тембра</li>
+          <li class="scheme__menu-element" id="fusebox">9. &nbsp;Индикатор включения</li>
         </ol>
         <div class="scheme__slider"></div>
       </div>
@@ -65,6 +66,9 @@
     <section class="fourth page">
       <h2 class="page__subheader">Возможности</h2>
       <div class="page__paragraph">Электрофон предназначен для электроакустического воспроизведения грампластинок на скоростях 33⅓, 45 и 78 об/мин любых размеров.</div>
+      <div class="label">
+        <div class="label__elem-1"></div><div class="label__elem-2"></div><div class="label__elem-3"></div>
+      </div>
       <div class="page__paragraph">Виниловые грампластинки («долгоиграющие»). Рассчитанны на воспроизведение на скорости 33⅓ или 45 об/мин. Для их воспроизведения установите переключатель игл на звукоснимателе в положение «МОНО».</div>
       <div class="page__paragraph">Гибкие грампластинки воспроизводятся аналогично виниловым.</div>
     </section>

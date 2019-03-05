@@ -31,11 +31,11 @@ img {
 .page__header {
 	font: small-caps bold 1.5em Georgia, serif;
 
-	margin: 5% auto -5%;
+	margin: 2em auto -2em;
 }
 .page__subheader {
 	font: bold 1.25em Georgia, serif;
-	margin: 10% auto 5%;
+	margin: 3em auto 1em;
 }
 .title {
 	width: 100%;
@@ -68,6 +68,7 @@ img {
 	font-family: Impact;
 	font-size: 7.5vh;
 	color: #0f0e0f;
+	cursor: pointer;
 	-ms-transform: rotate(35deg);
 	-webkit-transform: rotate(35deg);
 	transform: rotate(35deg);
@@ -258,7 +259,7 @@ img {
 	margin: auto;
 }
 .scheme__image {
-	width: 45%;
+	width: 24em;
 	margin: 0;
 }
 .scheme__caption {
@@ -266,12 +267,12 @@ img {
 	text-align: center;
 }
 .scheme__menu {
-	width: 40%;
-	margin: 0;
-	list-style: decimal inside;
-	font: 1em Georgia, serif;
+	width: 15em;
+	margin:3em 1em;
+	list-style-type: none;
+	font: 1.25em Georgia, serif;
 }
-.scheme__menu > * {
+.scheme__menu-element {
 	padding-left: 1%;
 	cursor: pointer;
 }
@@ -282,12 +283,92 @@ img {
 	width: 0;
 	height: 0;
 	opacity: 0;
-	border: .1em solid black;
+	border: .05em solid black;
 	-webkit-border-radius: .2em;
 	border-radius: .2em;
-	-o-transition: top .2s;
-	-webkit-transition: top .2s;
-	transition: top .2s;
+	-o-transition: top .2s, left .2s;
+	-webkit-transition: top .2s, left .2s;
+	transition: top .2s, left .2s;
+}
+.label {
+	position: relative;
+	width: 40em;
+	height: 17em;
+	margin: auto;
+	overflow: hidden;
+}
+.label__elem-1 {
+	position: absolute;
+	width: 40em;
+	height: 40em;
+	background: url(33-1.svg) no-repeat; /* 33: #f0a5b9 - pink; #f0f0a5 - yellow; 78: #5578fa - blue; flexy: #00aad2*/
+	-webkit-animation: label-first 12s linear forwards;
+	animation: label-first 12s linear infinite;
+}
+.label__elem-2 {
+	position:absolute;
+	width: 40em;
+	height: 40em;
+	background: url(33-2.svg) no-repeat;
+	-webkit-animation: label-second 12s linear forwards;
+	animation: label-second 12s linear infinite;
+}
+.label__elem-3 {
+	position:absolute;
+	width: 40em;
+	height: 40em;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	background: url(lemz.svg) no-repeat top, #5380c5;
+	background-size: 50%;
+	-webkit-animation: label-third 12s linear forwards;
+	animation: label-third 12s linear infinite;
+}
+@-webkit-keyframes "label-first" {
+	0%		{ opacity: 1; transform:rotate(0deg); }
+	30%		{ opacity: 1; transform:rotate(0deg); }
+	33%		{ opacity: 0; transform:rotate(180deg); }	
+	96%		{ opacity: 0; transform:rotate(-180deg); }
+	99%	{ opacity: 1; transform:rotate(0deg); }
+}
+@-webkit-keyframes "label-second" {
+	0%		{ opacity: 0; transform:rotate(-180deg); }
+	30%		{ opacity: 0; transform:rotate(-180deg); }
+	33%		{ opacity: 1; transform:rotate(0deg); }	
+	63%		{ opacity: 1; transform:rotate(0deg); }	
+	66%		{ opacity: 0; transform:rotate(180deg); }
+	100%	{ opacity: 0; transform:rotate(-180deg); }
+}
+@-webkit-keyframes "label-third" {
+	0%		{ opacity: 0; transform:rotate(-180deg); }
+	63%		{ opacity: 0; transform:rotate(-180deg); }
+	66%		{ opacity: 1; transform:rotate(0deg); }	
+	96%		{ opacity: 1; transform:rotate(0deg); }	
+	99%		{ opacity: 0; transform:rotate(180deg); }
+	100%	{ opacity: 0; transform:rotate(180deg); }
+}
+@keyframes "label-first" {
+	0%		{ opacity: 1; transform:rotate(0deg); }
+	30%		{ opacity: 1; transform:rotate(0deg); }
+	33%		{ opacity: 0; transform:rotate(180deg); }	
+	96%		{ opacity: 0; transform:rotate(-180deg); }
+	99%	{ opacity: 1; transform:rotate(0deg); }
+}
+@keyframes "label-second" {
+	0%		{ opacity: 0; transform:rotate(-180deg); }
+	30%		{ opacity: 0; transform:rotate(-180deg); }
+	33%		{ opacity: 1; transform:rotate(0deg); }	
+	63%		{ opacity: 1; transform:rotate(0deg); }	
+	66%		{ opacity: 0; transform:rotate(180deg); }
+	100%	{ opacity: 0; transform:rotate(-180deg); }
+}
+@keyframes "label-third" {
+	0%		{ opacity: 0; transform:rotate(-180deg); }
+	63%		{ opacity: 0; transform:rotate(-180deg); }
+	66%		{ opacity: 1; transform:rotate(0deg); }	
+	96%		{ opacity: 1; transform:rotate(0deg); }	
+	99%		{ opacity: 0; transform:rotate(180deg); }
+	100%	{ opacity: 0; transform:rotate(180deg); }
 }
 @media screen and (orientation: portrait) {
 	.cover {
@@ -355,6 +436,10 @@ img {
 	.scheme__menu {
 		width: 90%;
 		padding: 0;
+		font: 1.25em Georgia, serif;
+	}
+	.scheme__menu-element {
+		display: inline-block;
 	}
 }
 @media screen and (min-aspect-ratio: 9/15) and (max-aspect-ratio: 9/8) {
@@ -418,5 +503,17 @@ img {
 		top: 32%;
 		left: 32%;
 		border-width: 5vh;
+	}
+	.scheme__image {
+		width: 24em;
+	}
+	.scheme__menu {
+		width: 15em;
+    	margin-left: 1em;
+    	margin-top: 3em;
+		font: 1.25em Georgia, serif;
+	}
+	.scheme__menu-element {
+		display: block;
 	}
 }
