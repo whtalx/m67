@@ -40,7 +40,7 @@ img {
 .title {
 	width: 100%;
 	height: 100vh;
-	background-color: #f0f060;
+	background-color: #ffe14b;
 }
 .cover {
 	height: 100vh;
@@ -67,7 +67,7 @@ img {
 	width: 37.5vh;
 	font-family: Impact;
 	font-size: 7.5vh;
-	color: #0f0e0f;
+	color: #0f0f14;
 	cursor: pointer;
 	-ms-transform: rotate(35deg);
 	-webkit-transform: rotate(35deg);
@@ -101,7 +101,7 @@ img {
 	height: 0;
 	border: 3.75vh solid transparent;
 	border-right: 37.5vh solid transparent;
-	border-left: 15vh solid #5a7ec4;
+	border-left: 15vh solid #008cdc;
 	-ms-transform: rotate(-55deg);
 	-webkit-transform: rotate(-55deg);
 	transform: rotate(-55deg); /*-37deg == 33, -55deg == 45, -73deg == 78*/
@@ -116,7 +116,7 @@ img {
 	right: 1.5vh;
 	width: 48.7vh;
 }
-.cover__title {
+.cover__electrophone {
 	position: absolute;
 	top: 75vh;
 	right: 4.8vh;
@@ -125,9 +125,9 @@ img {
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
 	font-weight: 900;
 	font-size: 6vh;
-	color: #0f0e0f;
+	color: #0f0f14;
 }
-.cover__coursive {
+.cover__juvenile {
 	position: absolute;
 	top: 80vh;
 	right: 1.5vh;
@@ -136,7 +136,7 @@ img {
 	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
 	font-weight: 900;
 	font-size: 7.5vh;
-	color: #5a7ec4;
+	color: #008cdc;
 }
 .cover__subheader {
 	position: absolute;
@@ -144,7 +144,7 @@ img {
 	right: 5.25vh;
 	text-align: right;
 	font: bold 3.3vh "Trebuchet MS", Helvetica, sans-serif;
-	color: #0e0f0e;
+	color: #0f0f14;
 }
 .vinyl {
 	position: absolute;
@@ -163,23 +163,23 @@ img {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	border: 1.5vh solid #0e0f0e;
+	border: 1.5vh solid #0f0f14;
 	box-sizing: border-box;
 	background:
 		-webkit-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
 		-webkit-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
 		-webkit-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
-		-webkit-repeating-radial-gradient(#000, #252826 2px, #000 3px);
+		-webkit-repeating-radial-gradient(#0f0f14, #413c37 2px, #0f0f14 3px);
 	background:
 		-o-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
 		-o-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
 		-o-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
-		-o-repeating-radial-gradient(#000, #252826 2px, #000 3px);
+		-o-repeating-radial-gradient(#0f0f14, #413c37 2px, #0f0f14 3px);
 	background:
-		linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
-		linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
-		linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
-		repeating-radial-gradient(#000, #252826 2px, #000 3px);
+		linear-gradient(65deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
+		linear-gradient(75deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
+		linear-gradient(-15deg, transparent 40%, rgba(70, 75, 75, .5) 50%, transparent 60%) no-repeat 0 100%,
+		repeating-radial-gradient(#000, #373c3c 2px, #000 3px);
 	-webkit-animation: swing .7s ease-in-out infinite alternate;
 	animation: swing .7s ease-in-out infinite alternate;
 }
@@ -219,9 +219,8 @@ img {
 	height: 36%;
 	top: 32%;
 	left: 32%;
-	border: 5vh solid #0e0f0e;
-	background-color: #5380c5;
-	background: url(lemz.svg) no-repeat bottom, #5380c5;
+	border: 5vh solid #0f0f14;
+	background: url(lemz.svg) no-repeat bottom, #008cdc;
 	background-size: 50%;
 	-webkit-animation: rotate 1.3s linear infinite;
 	animation: rotate 1.3s linear infinite;
@@ -292,35 +291,30 @@ img {
 }
 .label {
 	position: relative;
-	width: 40em;
-	height: 17em;
+	width: 40vmax;
+	height: 20vmax;
 	margin: auto;
 	overflow: hidden;
 }
-.label__elem-1 {
+.label > * {
 	position: absolute;
-	width: 40em;
-	height: 40em;
-	background: url(33-1.svg) no-repeat; /* 33: #f0a5b9 - pink; #f0f0a5 - yellow; 78: #5578fa - blue; flexy: #00aad2*/
+	width: 100%;
+	height: 200%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+}
+.label__33-1 {
+	background: url(label__33-1.svg) no-repeat; /* 33: #f0a5b9 - pink; #f0f0a5 - yellow; 78: #5578fa - blue; flexy: #00aad2*/
 	-webkit-animation: label-first 12s linear forwards;
 	animation: label-first 12s linear infinite;
 }
-.label__elem-2 {
-	position:absolute;
-	width: 40em;
-	height: 40em;
-	background: url(33-2.svg) no-repeat;
+.label__33-2 {
+	background: url(label__33-2.svg) no-repeat;
 	-webkit-animation: label-second 12s linear forwards;
 	animation: label-second 12s linear infinite;
 }
-.label__elem-3 {
-	position:absolute;
-	width: 40em;
-	height: 40em;
-	-webkit-border-radius: 100%;
-	border-radius: 100%;
-	background: url(lemz.svg) no-repeat top, #5380c5;
-	background-size: 50%;
+.label__33-3 {
+	background: url(label__flexy.svg) no-repeat;
 	-webkit-animation: label-third 12s linear forwards;
 	animation: label-third 12s linear infinite;
 }
@@ -440,6 +434,10 @@ img {
 	}
 	.scheme__menu-element {
 		display: inline-block;
+	}
+	.label {
+		width: 90vw;
+		height: 45vw;
 	}
 }
 @media screen and (min-aspect-ratio: 9/15) and (max-aspect-ratio: 9/8) {
