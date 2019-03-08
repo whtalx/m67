@@ -305,7 +305,7 @@ img {
 	height: 200%;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
-}	/* 33: #f0a5b9 - pink; #f0f0a5 - yellow; 78: #5578fa - blue; flexy: #00aad2*/
+}
 @media screen and (orientation: portrait) {
 	.cover {
 		width: 100%;
