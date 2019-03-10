@@ -8,6 +8,7 @@ $(function() {
     text_container  = document.querySelector('.label__text'),
     $text78         = $('.label__text-78'),
     $text33         = $('.label__text-33'),
+    textWidth       = $text78[0].getBoundingClientRect().width,
     speed           = 78,
     transition      = 300,
     delay           = 3000,
@@ -17,15 +18,17 @@ $(function() {
     element2Img     = 0, //cycles between 2 and 4, even only
     isSpinning      = false,
     currentText     = 0,
-    startX          = null;
-
-/*  start animations when objects are visible  */
+    startX          = null,
+    startY          = null,
+    absX            = null,
+    absY            = null,
+    swipe           = null,
+    isScroll        = true;
 
   $(window).scroll(function() {
     if (isInViewport($SVG_container) && !isSpinning) spin();
   });
 
-/*  record labels animation  */
 
   $SVG_img1.attr('src','label__78-1.svg');
   $SVG_img2.attr('src','label__78-2.svg');
@@ -95,11 +98,9 @@ $(function() {
     if (turn > 1) turn = 0;
   }
 
-/*    labels description animation    */
-
-  text_container.addEventListener('mousedown', lock, false);
+  //text_container.addEventListener('mousedown', lock, false);
   text_container.addEventListener('touchstart', lock, false);
-  text_container.addEventListener('mouseup', move, false);
+  //text_container.addEventListener('mouseup', move, false);
   text_container.addEventListener('touchend', move, false);
   $leftArrow.on('mousedown', slideToLeft);
   $rightArrow.on('mousedown', slideToRight);
@@ -109,28 +110,78 @@ $(function() {
   }
 
   function lock(event) {
-    event.preventDefault();
+    var target = event.target;
+    if (
+      target.className == 'label__right-arrow' ||
+      target.className == 'label__left-arrow' ) {
+        //text_container.removeEventListener('mousemove', drag, false);
+        text_container.removeEventListener('touchmove', drag, false);
+    }
     startX = unify(event).clientX;
+    startY = unify(event).clientY;
+    textWidth = $text78[0].getBoundingClientRect().width;
+    //text_container.addEventListener('mousemove', drag, false);
+    text_container.addEventListener('touchmove', drag, false);
+  }
+
+  function drag(event) {
+      absX = Math.abs(unify(event).clientX - startX);
+      absY = Math.abs(unify(event).clientY - startY);
+      swipe = (unify(event).clientX - startX) / textWidth * (100);
+
+      if (absX <= absY) return;
+
+      else if (absX > absY) {
+
+        event.preventDefault();
+
+        if (swipe > 0 && currentText == 1) translate('-' + (106 - swipe));
+        if (swipe < 0 && currentText === 0) translate(swipe);
+      }
   }
 
   function move(event) {
-    if (startX || startX === 0) {
-      let deltaX = unify(event).clientX - startX;
+    if (Math.abs(swipe) < 16) {
+          if (currentText == 1) translate('-106');
+          if (currentText === 0) translate('0');
+        }
+    if (startX || startY || startX === 0 || startY === 0) {
 
-      if (deltaX < 0 && currentText === 0) {
-        slideToRight();
-        currentText = 1;
-      } else if (deltaX > 0 && currentText == 1) {
-        slideToLeft();
-        currentText = 0;
+      absX = Math.abs(unify(event).clientX - startX);
+      absY = Math.abs(unify(event).clientY - startY);
+
+      if (absX > absY) {
+        event.preventDefault();
+
+        var deltaX = unify(event).clientX - startX;
+
+        if (Math.abs(swipe) < 24) {
+
+          if (currentText == 1) translate('-106');
+          if (currentText === 0) translate('0');
+
+        } else if (deltaX < 0 && currentText === 0) {
+
+          slideToRight();
+
+        } else if (deltaX > 0 && currentText == 1) {
+
+          slideToLeft();
+
+        }
+
+        startX = null;
       }
-
-      startX = null;
     }
+        //text_container.removeEventListener('mousemove', drag, false);
+        text_container.removeEventListener('touchmove', drag, false);
   }
 
   function slideToLeft() {
+    //text_container.removeEventListener('mousemove', drag, false);
+    text_container.removeEventListener('touchmove', drag, false);
     speed = 78;
+    currentText = 0;
     
     if (turn === 0) {
      $SVG_img1
@@ -145,14 +196,8 @@ $(function() {
     clearTimeout(timeout);
     spin();
 
-    $text78.css({
-      '-webkit-transform' : 'translate(0)',
-      'transform'         : 'translate(0)'
-    });
-    $text33.css({
-      '-webkit-transform' : 'translate(0)',
-      'transform'         : 'translate(0)'
-    });
+    translate('0');
+
     $leftArrow.css({
       'opacity'           : '0',
       'z-index'           : '-1',
@@ -166,7 +211,10 @@ $(function() {
   }
 
   function slideToRight() {
+    //text_container.removeEventListener('mousemove', drag, false);
+    text_container.removeEventListener('touchmove', drag, false);
     speed = 33;
+    currentText = 1;
 
     if (turn === 0) {
      $SVG_img1
@@ -181,14 +229,7 @@ $(function() {
     clearTimeout(timeout);
     spin();
     
-    $text78.css({
-      '-webkit-transform' : 'translate(-106%)',
-      'transform'         : 'translate(-106%)'
-    });
-    $text33.css({
-      '-webkit-transform' : 'translate(-106%)',
-      'transform'         : 'translate(-106%)'
-    });
+    translate('-106');
     $leftArrow.css({
       'opacity'           : '1',
       'z-index'           : '1',
@@ -200,8 +241,6 @@ $(function() {
       'cursor'            : 'default'
     });
   }
-
-/*  true if at least one pixel of object height is in viewport  */
 
   function isInViewport(object) {
     if ( object instanceof $ ) {
@@ -215,5 +254,15 @@ $(function() {
     );
   };
 
+  function translate(percent) {
+    $text78.css({
+      '-webkit-transform' : 'translate(' + percent + '%)',
+      'transform'         : 'translate(' + percent + '%)'
+    });
+    $text33.css({
+      '-webkit-transform' : 'translate(' + percent + '%)',
+      'transform'         : 'translate(' + percent + '%)'
+    });
+  }
   
 });
