@@ -1,33 +1,33 @@
 $(function() {
   var
-    $title         = $('.title'),
-    $first         = $('.first'),
+    //$title         = $('.title'),
+    //$first         = $('.first'),
     $speedArrow    = $('.speed-selector__arrow'),
     $vinyl__base   = $('.vinyl__base'),
     $vinyl__shadow = $('.vinyl__shadow'),
     $vinyl__label  = $('.vinyl__label'),
     viewportHeight = $(window).height();
 
-
+/*
   $(window).scroll(function() {
     var opacity = toTop() / viewportHeight;
 
     if (opacity >= 0) {
       $title.css({
-        'display' : 'block',
+        'visibility' : 'visible',
         'opacity' : opacity
       });
     } else if (opacity < 0) {
       $title.css({
-        'display' : 'none'
+        'visibility' : 'hidden'
       });
     }
   });
-
+*/
   $('.speed-selector__33').mousedown(function () {
     $speedArrow.css({
-      '-webkit-transform' : 'rotate(-35deg)',
-      'transform'         : 'rotate(-35deg)'
+      '-webkit-transform' : 'rotate(-45deg)',
+      'transform'         : 'rotate(-45deg)'
     });
     $vinyl__base.css({
       '-webkit-animation-duration' : '.9s',
@@ -45,8 +45,8 @@ $(function() {
 
   $('.speed-selector__45').mousedown(function () {
     $speedArrow.css({
-      '-webkit-transform' : 'rotate(-57deg)',
-      'transform'         : 'rotate(-57deg)'
+      '-webkit-transform' : 'rotate(-57.5deg)',
+      'transform'         : 'rotate(-57.5deg)'
     });
     $vinyl__base.css({
       '-webkit-animation-duration' : '.7s',
@@ -64,8 +64,8 @@ $(function() {
 
   $('.speed-selector__78').mousedown(function () {
     $speedArrow.css({
-      '-webkit-transform' : 'rotate(-75deg)',
-      'transform'         : 'rotate(-75deg)'
+      '-webkit-transform' : 'rotate(-68deg)',
+      'transform'         : 'rotate(-68deg)'
     });
     $vinyl__base.css({
       '-webkit-animation-duration' : '.3s',
@@ -80,13 +80,13 @@ $(function() {
       'animation-duration'         : '.77s'
     });
   });
-
+/*
   function toTop() {
     var box = $first[0].getBoundingClientRect();
     return (
       box.top
     );
   };
-
+*/
 
 });
