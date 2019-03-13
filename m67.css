@@ -297,8 +297,7 @@ body {
 	display: -webkit-flex;
 	display: flex;
 	align-items: center;
-	overflow-y: hidden;
-	overflow-x: hidden;
+	overflow: hidden;
 	width: 100%;
 	margin: auto;
 }
@@ -322,6 +321,7 @@ body {
 	min-width: 93%;
 	width: 93%;
 	margin: auto 0 auto 6%;
+  text-align: left;
 	-webkit-transition: transform .2s ease-in-out;
 	transition: transform .2s ease-in-out;
 }
@@ -329,6 +329,7 @@ body {
 	min-width: 93%;
 	width: 93%;
 	margin: auto 6% auto 0;
+  text-align: left;
 	-webkit-transition: transform .2s ease-in-out;
 	transition: transform .2s ease-in-out;
 }
