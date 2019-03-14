@@ -20,21 +20,17 @@ body {
 }
 .page__paragraph {
   width: 90%;
-	margin-left: 5%;
+	margin: 0 5%;
   text-align: justify;
 	font: 1.25em Georgia, serif;
 }
-.page__paragraph_caption {
-	font: italic 1em Georgia, serif;
-	text-align: center;
-}
 .page__header, .page__subheader {
-	width: 100%;
+	width: 90%;
 	text-align: center;
 }
 .page__header {
 	font: bold 1.25em Georgia, serif;
-	margin: 3em auto -2em;
+	margin: 2em auto -2em;
 }
 .page__subheader {
 	font: bold 1.25em Georgia, serif;
@@ -203,7 +199,7 @@ body {
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
 	border: 5vh solid #0f0f14;
-	background: url(lemz.svg) no-repeat bottom, #008cdc;
+	background: url(lemz.svg) no-repeat 80% 20%, #008cdc;
 	background-size: 50%;
 }
 @-webkit-keyframes "swing" {
@@ -333,6 +329,22 @@ body {
 	-webkit-transition: transform .2s ease-in-out;
 	transition: transform .2s ease-in-out;
 }
+.fifth__instructions {
+	width: 60%;
+	margin: auto 0 auto 5%;
+}
+.fifth__instructions .page__paragraph {
+	width: 100%;
+	margin: auto 0;
+}
+.fifth__image {
+	width: 30%;
+	height: 100%;
+	margin: auto 5% auto 0;
+}
+.eighth {
+	margin-bottom: 10%;
+}
 @media screen and (orientation: portrait) {
 	.speed-selector__arrow, .speed-selector__numbers {
 		display: none;
@@ -403,5 +415,14 @@ body {
 	.label__SVG-container {
 		width: 90vw;
 		height: 45vw;
+	}
+	.fifth__instructions {
+		width: 90%;
+		margin: auto 5%;
+	}
+	.fifth__image {
+		width: 90%;
+		height: 100%;
+		margin: auto 5%;
 	}
 }
