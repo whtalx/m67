@@ -57,8 +57,8 @@ body {
 	width: 37.5vh;
 	font-family: Impact;
 	font-size: 7.5vh;
+	-webkit-tap-highlight-color: transparent;
 	color: #0f0f14;
-	cursor: pointer;
 	-webkit-transform: rotate(34deg);
 	-webkit-transform-origin: center;
 	transform: rotate(34deg);
@@ -67,6 +67,7 @@ body {
 .speed-selector__33,.speed-selector__45,.speed-selector__78 {
 	height: 6vh;
 	display: inline-block;
+	cursor: pointer;
 }
 .speed-selector__33 {
 	-webkit-transform: rotate(15deg);
@@ -164,8 +165,8 @@ body {
 		linear-gradient(75deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
 		linear-gradient(-15deg, transparent 40%, rgba(70, 75, 75, .5) 50%, transparent 60%) no-repeat 0 100%,
 		repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
-	-webkit-animation: swing .7s ease-in-out infinite alternate;
-	animation: swing .7s ease-in-out infinite alternate;
+	-webkit-animation: swing .666666s ease-in-out infinite alternate;
+	animation: swing .666666s ease-in-out infinite alternate;
 }
 .vinyl__shadow {
 	display: -webkit-flex;
@@ -187,8 +188,8 @@ body {
 		linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
 		linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
 		linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
-	-webkit-animation: rotate 1.3s linear infinite;
-	animation: rotate 1.3s linear infinite;
+	-webkit-animation: rotate 1.333333s linear infinite;
+	animation: rotate 1.333333s linear infinite;
 }
 .vinyl__label {
 	position: relative;
@@ -247,6 +248,7 @@ body {
 	padding: 0;
 	list-style-type: none;
 	font: 1.25em Georgia, serif;
+	-webkit-tap-highlight-color: transparent;
 }
 .scheme__menu-element {
 	padding-left: 1%;
@@ -259,7 +261,7 @@ body {
 	width: 0;
 	height: 0;
 	opacity: 0;
-	border: .05em solid black;
+	border: .05em solid #0f0f14;
 	-webkit-border-radius: .3em;
 	border-radius: .3em;
 	-webkit-transition: top .2s, left .2s, width .2s, height .2s;
