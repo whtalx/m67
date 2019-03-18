@@ -344,8 +344,27 @@ body {
   height: 100%;
   margin: auto 5% auto 0;
 }
+.seventh {
+  flex-flow: row wrap;
+}
+.seventh__image {
+  width: 90%;
+  height: 100%;
+  margin: auto 5%;
+}
 .eighth {
   margin-bottom: 10%;
+}
+@media all and (min-width: 600px) {
+  .seventh__text {
+    width: 60%;
+    margin: auto 0 auto 5%;
+  }
+  .seventh__image {
+    width: 30%;
+    height: 100%;
+    margin: auto 5% auto 0;
+  }
 }
 @media screen and (orientation: portrait) {
   .speed-selector__arrow, .speed-selector__numbers {
