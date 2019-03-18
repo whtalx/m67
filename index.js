@@ -1,48 +1,42 @@
 "use strict"
 window.addEventListener('load', () => {
   const
-    vinyl          = document.getElementsByClassName('vinyl')[0],
-    vinyl__base    = document.getElementsByClassName('vinyl__base')[0],
-    vinyl__shadow  = document.getElementsByClassName('vinyl__shadow')[0],
-    speedArrow     = document.getElementsByClassName('speed-selector__arrow')[0],
-    speedNumbers   = document.getElementsByClassName('speed-selector__numbers')[0],
-    speed__33      = document.getElementsByClassName('speed-selector__33')[0],
-    speed__45      = document.getElementsByClassName('speed-selector__45')[0],
-    speed__78      = document.getElementsByClassName('speed-selector__78')[0],
-    scheme__svg    = document.getElementsByClassName('scheme__svg')[0],
-    scheme__menu   = document.getElementsByClassName('scheme__menu')[0],
+    vinyl = document.getElementsByClassName('vinyl')[0],
+    vinyl__base = document.getElementsByClassName('vinyl__base')[0],
+    vinyl__shadow = document.getElementsByClassName('vinyl__shadow')[0],
+    speedArrow = document.getElementsByClassName('speed-selector__arrow')[0],
+    speedNumbers = document.getElementsByClassName('speed-selector__numbers')[0],
+    scheme__svg = document.getElementsByClassName('scheme__svg')[0],
+    scheme__menu = document.getElementsByClassName('scheme__menu')[0],
     scheme__slider = document.getElementsByClassName('scheme__slider')[0],
-    SVG_container  = document.getElementsByClassName('label__SVG-container')[0],
-    SVG_img1       = document.getElementsByClassName('label__SVG-img')[0],
-    SVG_img2       = document.getElementsByClassName('label__SVG-img')[1],
-    leftArrow      = document.getElementsByClassName('label__left-arrow')[0],
-    rightArrow     = document.getElementsByClassName('label__right-arrow')[0],
+    SVG_container = document.getElementsByClassName('label__SVG-container')[0],
+    SVG_img1 = document.getElementsByClassName('label__SVG-img')[0],
+    SVG_img2 = document.getElementsByClassName('label__SVG-img')[1],
+    leftArrow = document.getElementsByClassName('label__left-arrow')[0],
+    rightArrow = document.getElementsByClassName('label__right-arrow')[0],
     text_container = document.getElementsByClassName('label__text')[0],
-    text78         = document.getElementsByClassName('label__text-78')[0],
-    text33         = document.getElementsByClassName('label__text-33')[0];
+    text78 = document.getElementsByClassName('label__text-78')[0],
+    text33 = document.getElementsByClassName('label__text-33')[0];
 
   let
-    viewportHeight    = window.innerHeight,
-    isVinylRotating   = true,
-    selectedItem      = document.getElementById('disc'),
-    defaultSelectedId = selectedItem.getAttribute('id'),
-    sliderTimer       = null,
-    textWidth         = text78.getBoundingClientRect().width,
-    speed             = 78,
-    transition        = 300,
-    delay             = 3000,
-    turn              = 0,
-    timeout           = null,
-    element1Img       = 1, //cycles between 1 and 3, odd only
-    element2Img       = 0, //cycles between 2 and 4, even only
-    isLabelSpinning   = false,
-    currentText       = 0,
-    startX            = null,
-    startY            = null,
-    absX              = null,
-    absY              = null,
-    swipe             = null,
-    isScroll          = true;
+    isVinylRotating = true,
+    selectedItem = document.getElementById('disc'),
+    sliderTimer = null,
+    textWidth = text78.getBoundingClientRect().width,
+    speed = 78,
+    transition = 300,
+    delay = 3000,
+    turn = 0,
+    timeout = null,
+    element1Img = 1, //cycles between 1 and 3, odd only
+    element2Img = 0, //cycles between 2 and 4, even only
+    isLabelSpinning = false,
+    currentText = 0,
+    startX = null,
+    startY = null,
+    absX = null,
+    absY = null,
+    swipe = null;
 
   window.addEventListener('scroll', () => {
     if (isInViewport(vinyl) && !isVinylRotating) {
@@ -77,31 +71,31 @@ window.addEventListener('load', () => {
   function rotate() {
     isVinylRotating = true;
     vinyl__shadow.style.animationPlayState = 'running';
-    vinyl__base.style.animationPlayState   = 'running';
+    vinyl__base.style.animationPlayState = 'running';
   }
 
   function stopRotating() {
     isVinylRotating = false;
     vinyl__shadow.style.animationPlayState = 'paused';
-    vinyl__base.style.animationPlayState   = 'paused';
+    vinyl__base.style.animationPlayState = 'paused';
   }
 
   function setSpeed(speed) {
     if (speed == 33) {
-      speedArrow.style.WebkitTransform      = 'rotate(-45deg)';
-      speedArrow.style.transform            = 'rotate(-45deg)';
+      speedArrow.style.WebkitTransform = 'rotate(-45deg)';
+      speedArrow.style.transform = 'rotate(-45deg)';
       vinyl__shadow.style.animationDuration = '1.818181s';
-      vinyl__base.style.animationDuration   = '.9s';
+      vinyl__base.style.animationDuration = '.9s';
     } else if (speed == 45) {
-      speedArrow.style.WebkitTransform      = 'rotate(-57.5deg)';
-      speedArrow.style.transform            = 'rotate(-57.5deg)';
+      speedArrow.style.WebkitTransform = 'rotate(-57.5deg)';
+      speedArrow.style.transform = 'rotate(-57.5deg)';
       vinyl__shadow.style.animationDuration = '1.333333s';
-      vinyl__base.style.animationDuration   = '.666666s';
+      vinyl__base.style.animationDuration = '.666666s';
     } else if (speed == 78) {
-      speedArrow.style.WebkitTransform      = 'rotate(-68deg)';
-      speedArrow.style.transform            = 'rotate(-68deg)';
+      speedArrow.style.WebkitTransform = 'rotate(-68deg)';
+      speedArrow.style.transform = 'rotate(-68deg)';
       vinyl__shadow.style.animationDuration = '.769231s';
-      vinyl__base.style.animationDuration   = '.384615s';
+      vinyl__base.style.animationDuration = '.384615s';
     }
   }
   /**********/
@@ -116,15 +110,13 @@ window.addEventListener('load', () => {
       const target = event.target;
 
       if (target.tagName != 'LI') return;
-      
+
       select(target);
 
       function select(node) {
-        
         if (selectedItem) {
           let elementId = selectedItem.getAttribute('id');
-
-        svgdom.getElementById(elementId).setAttribute('class', 'scheme-path');
+          svgdom.getElementById(elementId).setAttribute('class', 'scheme-path');
         }
 
         selectedItem = node;
@@ -138,10 +130,10 @@ window.addEventListener('load', () => {
 
   function moveSlider(elem) {
     let
-      box    = elem.getBoundingClientRect(),
-      left   = box.left,
-      top    = box.top,
-      width  = box.width,
+      box = elem.getBoundingClientRect(),
+      left = box.left,
+      top = box.top,
+      width = box.width,
       height = box.height;
 
     scheme__slider.style.left = left + window.pageXOffset + 'px';
@@ -170,11 +162,11 @@ window.addEventListener('load', () => {
     animate(angle => {
       SVG_img2.style.transform = 'rotate(' + (angle + (180 * turn)) + 'deg)';
       SVG_img2.style.opacity = Math.abs(1 - turn - 1 / 180 * angle)
-      
+
       SVG_img1.style.transform = 'rotate(' + (angle + (180 * turn) - 180) + 'deg)';
       SVG_img1.style.opacity = Math.abs(turn - 1 / 180 * angle);
     }, transition);
-      
+
     if (isInViewport(SVG_container)) {
       timeout = setTimeout(spin, delay);
     } else {
@@ -193,9 +185,9 @@ window.addEventListener('load', () => {
 
       if (angle > 180) angle = 180;
       if (angle < 0) angle = 0;
-      
+
       draw(angle);
-      
+
       if (timePassed < duration) {
         requestAnimationFrame(animate);
       } else {
@@ -208,13 +200,13 @@ window.addEventListener('load', () => {
     if (turn === 0) {
       element2Img += 2;
       if (element2Img > 4) element2Img = 2;
-       SVG_img2.setAttribute('src','label__' + speed +'-' + element2Img + '.svg');
+      SVG_img2.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
     }
 
     if (turn == 1) {
       element1Img += 2;
       if (element1Img > 3) element1Img = 1;
-       SVG_img1.setAttribute('src','label__' + speed +'-' + element1Img + '.svg');
+      SVG_img1.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
     }
 
     turn++;
@@ -228,8 +220,8 @@ window.addEventListener('load', () => {
   function lock(event) {
     const target = event.target;
     if (target.className == 'label__right-arrow' ||
-      target.className == 'label__left-arrow' ) {
-        text_container.removeEventListener('touchmove', drag, false);
+      target.className == 'label__left-arrow') {
+      text_container.removeEventListener('touchmove', drag, false);
     }
 
     startX = unify(event).clientX;
@@ -256,9 +248,9 @@ window.addEventListener('load', () => {
 
   function move(event) {
     if (Math.abs(swipe) < 16) {
-          if (currentText == 1) translate('-106');
-          if (currentText === 0) translate('0');
-        }
+      if (currentText == 1) translate('-106');
+      if (currentText === 0) translate('0');
+    }
 
     if (startX || startY || startX === 0 || startY === 0) {
       absX = Math.abs(unify(event).clientX - startX);
@@ -288,13 +280,13 @@ window.addEventListener('load', () => {
     text_container.removeEventListener('touchmove', drag, false);
     speed = 78;
     currentText = 0;
-    
+
     if (turn === 0) {
-     SVG_img1.setAttribute('src','label__' + speed +'-' + element2Img + '.svg');
+      SVG_img1.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
     }
 
     if (turn == 1) {
-      SVG_img2.setAttribute('src','label__' + speed +'-' + element1Img + '.svg');
+      SVG_img2.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
     }
 
     clearTimeout(timeout);
@@ -302,12 +294,12 @@ window.addEventListener('load', () => {
     translate('0');
 
     leftArrow.style.opacity = '0';
-    leftArrow.style.zIndex  = '-1';
-    leftArrow.style.cursor  = 'default';
+    leftArrow.style.zIndex = '-1';
+    leftArrow.style.cursor = 'default';
 
     rightArrow.style.opacity = '1';
-    rightArrow.style.zIndex  = '1';
-    rightArrow.style.cursor  = 'pointer';
+    rightArrow.style.zIndex = '1';
+    rightArrow.style.cursor = 'pointer';
 
   }
 
@@ -317,37 +309,37 @@ window.addEventListener('load', () => {
     currentText = 1;
 
     if (turn === 0) {
-     SVG_img1.setAttribute('src','label__' + speed +'-' + element2Img + '.svg');
+      SVG_img1.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
     }
 
     if (turn == 1) {
-      SVG_img2.setAttribute('src','label__' + speed +'-' + element1Img + '.svg');
+      SVG_img2.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
     }
 
     clearTimeout(timeout);
     spin();
-    
+
     translate('-106');
 
     leftArrow.style.opacity = '1';
-    leftArrow.style.zIndex  = '1';
-    leftArrow.style.cursor  = 'pointer';
+    leftArrow.style.zIndex = '1';
+    leftArrow.style.cursor = 'pointer';
 
     rightArrow.style.opacity = '0';
-    rightArrow.style.zIndex  = '-1';
-    rightArrow.style.cursor  = 'default';
+    rightArrow.style.zIndex = '-1';
+    rightArrow.style.cursor = 'default';
   }
 
   function translate(percent) {
     text78.style.WebkitTransform = 'translate(' + percent + '%)';
-    text78.style.transform       = 'translate(' + percent + '%)';    
+    text78.style.transform = 'translate(' + percent + '%)';
     text33.style.WebkitTransform = 'translate(' + percent + '%)';
-    text33.style.transform       = 'translate(' + percent + '%)';
+    text33.style.transform = 'translate(' + percent + '%)';
   }
   /*********/
   function isInViewport(object) {
     const box = object.getBoundingClientRect();
-    
+
     return (
       box.top < (window.innerHeight || document.documentElement.clientHeight) &&
       box.bottom > (0)

@@ -1,430 +1,430 @@
 body, p, div {
-	margin: 0;
+  margin: 0;
 }
 img {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 body {
-	background-color: #fffef4;
+  background-color: #fffef4;
 }
 .page {
-	display: -webkit-flex;
-	display: flex;
-	flex-wrap: wrap;
-	margin: auto;
-	text-align: center;
-	background-color: #fffef4;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  text-align: center;
+  background-color: #fffef4;
 }
 .page__paragraph {
   width: 90%;
-	margin: 0 5%;
+  margin: 0 5%;
   text-align: justify;
-	font: 1.25em Georgia, serif;
+  font: 1.25em Georgia, serif;
 }
 .page__header, .page__subheader {
-	width: 90%;
-	text-align: center;
+  width: 90%;
+  text-align: center;
 }
 .page__header {
-	font: bold 1.25em Georgia, serif;
-	margin: 2em auto -2em;
+  font: bold 1.25em Georgia, serif;
+  margin: 2em auto -2em;
 }
 .page__subheader {
-	font: bold 1.25em Georgia, serif;
-	margin: 3em auto 1em;
+  font: bold 1.25em Georgia, serif;
+  margin: 3em auto 1em;
 }
 .title {
-	width: 100%;
-	height: 100vh;
-	background-color: #ffe14b;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffe14b;
 }
 .cover {
-	position: relative;
-	width: 100%;
-	max-width: 112.5vh;
-	height: 100vh;
-	margin: 0 auto;
-	overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 112.5vh;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .speed-selector__numbers {
-	position: absolute;
-	top: 53vh;
-	right: 68vh;
-	height: 11.25vh;
-	width: 37.5vh;
-	font-family: Impact;
-	font-size: 7.5vh;
-	-webkit-tap-highlight-color: transparent;
-	color: #0f0f14;
-	-webkit-transform: rotate(34deg);
-	-webkit-transform-origin: center;
-	transform: rotate(34deg);
-	transform-origin: center;
+  position: absolute;
+  top: 53vh;
+  right: 68vh;
+  height: 11.25vh;
+  width: 37.5vh;
+  font-family: Impact;
+  font-size: 7.5vh;
+  -webkit-tap-highlight-color: transparent;
+  color: #0f0f14;
+  -webkit-transform: rotate(34deg);
+  -webkit-transform-origin: center;
+  transform: rotate(34deg);
+  transform-origin: center;
 }
 .speed-selector__33,.speed-selector__45,.speed-selector__78 {
-	height: 6vh;
-	display: inline-block;
-	cursor: pointer;
+  height: 6vh;
+  display: inline-block;
+  cursor: pointer;
 }
 .speed-selector__33 {
-	-webkit-transform: rotate(15deg);
-	-webkit-transform-origin: bottom right;
-	transform: rotate(15deg);
-	transform-origin: bottom right;
+  -webkit-transform: rotate(15deg);
+  -webkit-transform-origin: bottom right;
+  transform: rotate(15deg);
+  transform-origin: bottom right;
 }
 .speed-selector__45 {
-	margin: 0 4.5vh;
+  margin: 0 4.5vh;
 }
 .speed-selector__78 {
-	-webkit-transform: rotate(-15deg);
-	-webkit-transform-origin: bottom left;
-	transform: rotate(-15deg);
-	transform-origin: bottom left;
+  -webkit-transform: rotate(-15deg);
+  -webkit-transform-origin: bottom left;
+  transform: rotate(-15deg);
+  transform-origin: bottom left;
 }
 .speed-selector__arrow {
-	position: absolute;
-	top: 5vh;
-	right: 56.25vh;
-	width: 0;
-	height: 0;
-	border: 3vh solid transparent;
-	border-right: 62vh solid transparent;
-	border-left: 14vh solid #008cdc;
-	-webkit-transform: rotate(-57.5deg);
-	-webkit-transform-origin: right;
-	-webkit-transition: transform .5s;
-	transform: rotate(-57.5deg);
-	transform-origin: right;
-	transition: transform .5s;
+  position: absolute;
+  top: 5vh;
+  right: 56.25vh;
+  width: 0;
+  height: 0;
+  border: 3vh solid transparent;
+  border-right: 62vh solid transparent;
+  border-left: 14vh solid #008cdc;
+  -webkit-transform: rotate(-57.5deg);
+  -webkit-transform-origin: right;
+  -webkit-transition: transform .5s;
+  transform: rotate(-57.5deg);
+  transform-origin: right;
+  transition: transform .5s;
 }
 .cover__image {
-	position: absolute;
-	top: 22.5vh;
-	right: 1.5vh;
-	width: 48.7vh;
+  position: absolute;
+  top: 22.5vh;
+  right: 1.5vh;
+  width: 48.7vh;
 }
 .cover__electrophone {
-	position: absolute;
-	top: 73vh;
-	right: 4.8vh;
-	height: 5vh;
-	text-align: right;
-	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
-	font-weight: 900;
-	font-size: 6vh;
-	color: #0f0f14;
+  position: absolute;
+  top: 73vh;
+  right: 4.8vh;
+  height: 5vh;
+  text-align: right;
+  font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
+  font-weight: 900;
+  font-size: 6vh;
+  color: #0f0f14;
 }
 .cover__juvenile {
-	position: absolute;
-	top: 78vh;
-	right: 1.5vh;
-	height: 9vh;
-	text-align: right;
-	font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
-	font-weight: 900;
-	font-size: 7.5vh;
-	color: #008cdc;
+  position: absolute;
+  top: 78vh;
+  right: 1.5vh;
+  height: 9vh;
+  text-align: right;
+  font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic;
+  font-weight: 900;
+  font-size: 7.5vh;
+  color: #008cdc;
 }
 .cover__subheader {
-	position: absolute;
-	top: 87vh;
-	right: 5.25vh;
-	text-align: right;
-	font: bold 3.3vh "Trebuchet MS", Helvetica, sans-serif;
-	color: #0f0f14;
+  position: absolute;
+  top: 87vh;
+  right: 5.25vh;
+  text-align: right;
+  font: bold 3.3vh "Trebuchet MS", Helvetica, sans-serif;
+  color: #0f0f14;
 }
 .vinyl {
-	margin: auto;
-	position: absolute;
-	width: 105vh;
-	height: 105vh;
-	top: -45vh;
-	right: 3.75vh;
-	overflow: hidden;
+  margin: auto;
+  position: absolute;
+  width: 105vh;
+  height: 105vh;
+  top: -45vh;
+  right: 3.75vh;
+  overflow: hidden;
 }
 .vinyl__base {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	margin: 0;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	border: 1.5vh solid #0f0f14;
-	box-sizing: border-box;
-	background:
-		-webkit-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
-		-webkit-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
-		-webkit-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
-		-webkit-repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
-	background:
-		linear-gradient(65deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
-		linear-gradient(75deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
-		linear-gradient(-15deg, transparent 40%, rgba(70, 75, 75, .5) 50%, transparent 60%) no-repeat 0 100%,
-		repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
-	-webkit-animation: swing .666666s ease-in-out infinite alternate;
-	animation: swing .666666s ease-in-out infinite alternate;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: 0;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 1.5vh solid #0f0f14;
+  box-sizing: border-box;
+  background:
+    -webkit-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
+    -webkit-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
+    -webkit-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
+    -webkit-repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
+  background:
+    linear-gradient(65deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
+    linear-gradient(75deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
+    linear-gradient(-15deg, transparent 40%, rgba(70, 75, 75, .5) 50%, transparent 60%) no-repeat 0 100%,
+    repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
+  -webkit-animation: swing .666666s ease-in-out infinite alternate;
+  animation: swing .666666s ease-in-out infinite alternate;
 }
 .vinyl__shadow {
-	display: -webkit-flex;
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	margin: 0;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	background:
-		-webkit-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		-webkit-linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		-webkit-linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		-webkit-linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
-	background:
-		linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-		linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
-	-webkit-animation: rotate 1.333333s linear infinite;
-	animation: rotate 1.333333s linear infinite;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: 0;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background:
+    -webkit-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+    -webkit-linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+    -webkit-linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+    -webkit-linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
+  background:
+    linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+    linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+    linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
+    linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
+  -webkit-animation: rotate 1.333333s linear infinite;
+  animation: rotate 1.333333s linear infinite;
 }
 .vinyl__label {
-	position: relative;
-	margin: auto;
-	box-sizing: border-box;
-	width: 35%;
-	height: 35%;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	border: 5vh solid #0f0f14;
-	background: url(lemz.svg) no-repeat 80% 20%, #008cdc;
-	background-size: 50%;
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+  width: 35%;
+  height: 35%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 5vh solid #0f0f14;
+  background: url(lemz.svg) no-repeat 80% 20%, #008cdc;
+  background-size: 50%;
 }
-@-webkit-keyframes "swing" {
-	0% { -webkit-transform:rotate(-1deg); transform:rotate(-1deg); }
-	100% { -webkit-transform:rotate(1deg); transform:rotate(1deg); }
+@-webkit-keyframes swing {
+  0% { -webkit-transform:rotate(-1deg); transform:rotate(-1deg); }
+  100% { -webkit-transform:rotate(1deg); transform:rotate(1deg); }
 }
-@-webkit-keyframes "rotate" {
-	0% { -webkit-transform:rotate(0deg); transform:rotate(0deg); }
-	100% { -webkit-transform:rotate(360deg); transform:rotate(360deg); }
+@-webkit-keyframes rotate {
+  0% { -webkit-transform:rotate(0deg); transform:rotate(0deg); }
+  100% { -webkit-transform:rotate(360deg); transform:rotate(360deg); }
 }
-@keyframes "swing" {
-	0% { -webkit-transform:rotate(-1deg); transform:rotate(-1deg); }
-	100% { -webkit-transform:rotate(1deg);  transform:rotate(1deg); }
+@keyframes swing {
+  0% { -webkit-transform:rotate(-1deg); transform:rotate(-1deg); }
+  100% { -webkit-transform:rotate(1deg);  transform:rotate(1deg); }
 }
-@keyframes "rotate" {
-	0% { -webkit-transform:rotate(0deg); transform:rotate(0deg); }
-	100% { -webkit-transform:rotate(360deg); transform:rotate(360deg); }
+@keyframes rotate {
+  0% { -webkit-transform:rotate(0deg); transform:rotate(0deg); }
+  100% { -webkit-transform:rotate(360deg); transform:rotate(360deg); }
 }
 .first {
-	height: 100vh;
+  height: 100vh;
 }
 .first .page__paragraph {
-	margin: auto;
-	text-align: center;
+  margin: auto;
+  text-align: center;
 }
 .scheme {
-	display: -webkit-flex;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	width: 100%;
-	margin: auto;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
 }
 .scheme__image {
-	width: 40%;
-	margin: auto 5% auto 0;
+  width: 40%;
+  margin: auto 5% auto 0;
 }
 .scheme__caption {
-	font: italic 1em Georgia, serif;
-	text-align: center;
+  font: italic 1em Georgia, serif;
+  text-align: center;
 }
 .scheme__menu {
-	width: 40%;
-	margin: auto 0 auto 5%;
-	padding: 0;
-	list-style-type: none;
-	font: 1.25em Georgia, serif;
-	-webkit-tap-highlight-color: transparent;
+  width: 40%;
+  margin: auto 0 auto 5%;
+  padding: 0;
+  list-style-type: none;
+  font: 1.25em Georgia, serif;
+  -webkit-tap-highlight-color: transparent;
 }
 .scheme__menu-element {
-	padding-left: 1%;
-	cursor: pointer;
+  padding-left: 1%;
+  cursor: pointer;
 }
 .scheme__slider {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 0;
-	height: 0;
-	opacity: 0;
-	border: .05em solid #0f0f14;
-	-webkit-border-radius: .3em;
-	border-radius: .3em;
-	-webkit-transition: top .2s, left .2s, width .2s, height .2s;
-	transition: top .2s, left .2s, width .2s, height .2s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border: .05em solid #0f0f14;
+  -webkit-border-radius: .3em;
+  border-radius: .3em;
+  -webkit-transition: top .2s, left .2s, width .2s, height .2s;
+  transition: top .2s, left .2s, width .2s, height .2s;
 }
 .label {
-	width: 90%;
-	margin: auto;
+  width: 90%;
+  margin: auto;
 }
 .label__SVG-container {
-	position: relative;
-	width: 64vw;
-	height: 32vw;
-	max-width: 40em;
-	max-height: 20em;
-	margin: 1em auto;
-	overflow: hidden;
+  position: relative;
+  width: 64vw;
+  height: 32vw;
+  max-width: 40em;
+  max-height: 20em;
+  margin: 1em auto;
+  overflow: hidden;
 }
 .label__SVG-img {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 200%;
-	-webkit-border-radius: 100%;
-	border-radius: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
 }
 .label__text {
-	position: relative;
-	display: -webkit-flex;
-	display: flex;
-	align-items: center;
-	overflow: hidden;
-	width: 100%;
-	margin: auto;
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
 }
 .label__left-arrow {
-	left: 0;
-	opacity: 0;
-	cursor: default;
+  left: 0;
+  opacity: 0;
+  cursor: default;
 }
 .label__right-arrow {
-	right: 0;
-	cursor: pointer;
+  right: 0;
+  cursor: pointer;
 }
 .label__left-arrow, .label__right-arrow {
-	position: absolute;
-	font: 2em Georgia, serif;
-	text-align: center;
-	-webkit-transition: opacity .2s ease-out;
-	transition: opacity .2s ease-out;
+  position: absolute;
+  font: 2em Georgia, serif;
+  text-align: center;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
 }
 .label__text-33 {
-	min-width: 93%;
-	width: 93%;
-	margin: auto 0 auto 6%;
+  min-width: 93%;
+  width: 93%;
+  margin: auto 0 auto 6%;
   text-align: left;
-	-webkit-transition: transform .2s ease-in-out;
-	transition: transform .2s ease-in-out;
+  -webkit-transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
 }
 .label__text-78 {
-	min-width: 93%;
-	width: 93%;
-	margin: auto 6% auto 0;
+  min-width: 93%;
+  width: 93%;
+  margin: auto 6% auto 0;
   text-align: left;
-	-webkit-transition: transform .2s ease-in-out;
-	transition: transform .2s ease-in-out;
+  -webkit-transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
 }
 .fifth__instructions {
-	width: 60%;
-	margin: auto 0 auto 5%;
+  width: 60%;
+  margin: auto 0 auto 5%;
 }
 .fifth__instructions .page__paragraph {
-	width: 100%;
-	margin: auto 0;
+  width: 100%;
+  margin: auto 0;
 }
 .fifth__image {
-	width: 30%;
-	height: 100%;
-	margin: auto 5% auto 0;
+  width: 30%;
+  height: 100%;
+  margin: auto 5% auto 0;
 }
 .eighth {
-	margin-bottom: 10%;
+  margin-bottom: 10%;
 }
 @media screen and (orientation: portrait) {
-	.speed-selector__arrow, .speed-selector__numbers {
-		display: none;
-	}
+  .speed-selector__arrow, .speed-selector__numbers {
+    display: none;
+  }
 }
 @media screen and (orientation: portrait) and (max-aspect-ratio: 160/223) {
-	.cover {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-	}
-	.speed-selector__arrow, .speed-selector__numbers {
-		display: none;
-	}
-	.cover__image {
-		top: initial;
-		bottom: 50.125vw;
-		right: 2.4vw;
-		width: 77.918vw;
-	}
-	.cover__electrophone {
-		top: initial;
-		bottom: 35.2vw;
-		right: 7.68vw;
-		height: 8vw;
-		font-size: 10vw;
-	}
-	.cover__juvenile {
-		top: initial;
-		bottom: 20.8vw;
-		right: 2.4vw;
-		height: 14.4vw;
-		font-size: 12.5vw;
-	}
-	.cover__subheader {
-		top: initial;
-		bottom: 14.55vw;
-		right: 8.4vw;
-		font-size: 5.28vw;
-	}
-	.vinyl {
-		right: 6vw;
-		width: 168vw;
-		height: 168vw;
-		top: -72vw;
-	}
-	.vinyl__base {
-		border-width: 2.5vw;
-	}
-	.vinyl__label {
-		border-width: 8vw;
-	}
-	.scheme__image {
-		width: 90%;
-		margin: 0 auto;
-	}
-	.scheme__menu {
-		width: 90%;
-		margin: 1em 0 0 0;
-		font: 1.25em Georgia, serif;
-	}
-	.scheme__menu-element {
-		display: inline-block;
-	}
-	.label {
-		width: 90vw;
-	}
-	.label__SVG-container {
-		width: 90vw;
-		height: 45vw;
-	}
-	.fifth__instructions {
-		width: 90%;
-		margin: auto 5%;
-	}
-	.fifth__image {
-		width: 90%;
-		height: 100%;
-		margin: auto 5%;
-	}
+  .cover {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .speed-selector__arrow, .speed-selector__numbers {
+    display: none;
+  }
+  .cover__image {
+    top: initial;
+    bottom: 50.125vw;
+    right: 2.4vw;
+    width: 77.918vw;
+  }
+  .cover__electrophone {
+    top: initial;
+    bottom: 35.2vw;
+    right: 7.68vw;
+    height: 8vw;
+    font-size: 10vw;
+  }
+  .cover__juvenile {
+    top: initial;
+    bottom: 20.8vw;
+    right: 2.4vw;
+    height: 14.4vw;
+    font-size: 12.5vw;
+  }
+  .cover__subheader {
+    top: initial;
+    bottom: 14.55vw;
+    right: 8.4vw;
+    font-size: 5.28vw;
+  }
+  .vinyl {
+    right: 6vw;
+    width: 168vw;
+    height: 168vw;
+    top: -72vw;
+  }
+  .vinyl__base {
+    border-width: 2.5vw;
+  }
+  .vinyl__label {
+    border-width: 8vw;
+  }
+  .scheme__image {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .scheme__menu {
+    width: 90%;
+    margin: 1em 0 0 0;
+    font: 1.25em Georgia, serif;
+  }
+  .scheme__menu-element {
+    display: inline-block;
+  }
+  .label {
+    width: 90vw;
+  }
+  .label__SVG-container {
+    width: 90vw;
+    height: 45vw;
+  }
+  .fifth__instructions {
+    width: 90%;
+    margin: auto 5%;
+  }
+  .fifth__image {
+    width: 90%;
+    height: 100%;
+    margin: auto 5%;
+  }
 }
