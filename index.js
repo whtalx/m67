@@ -1,28 +1,29 @@
 "use strict"
 window.addEventListener('load', () => {
   const
+    img = document.getElementsByTagName('IMG'),
     vinyl = document.getElementsByClassName('vinyl')[0],
     vinyl__base = document.getElementsByClassName('vinyl__base')[0],
     vinyl__shadow = document.getElementsByClassName('vinyl__shadow')[0],
-    speedArrow = document.getElementsByClassName('speed-selector__arrow')[0],
-    speedNumbers = document.getElementsByClassName('speed-selector__numbers')[0],
+    speedSelector__arrow = document.getElementsByClassName('speed-selector__arrow')[0],
+    speedSelector__numbers = document.getElementsByClassName('speed-selector__numbers')[0],
     scheme__svg = document.getElementsByClassName('scheme__svg')[0],
     scheme__menu = document.getElementsByClassName('scheme__menu')[0],
     scheme__slider = document.getElementsByClassName('scheme__slider')[0],
-    SVG_container = document.getElementsByClassName('label__SVG-container')[0],
-    SVG_img1 = document.getElementsByClassName('label__SVG-img')[0],
-    SVG_img2 = document.getElementsByClassName('label__SVG-img')[1],
-    leftArrow = document.getElementsByClassName('label__left-arrow')[0],
-    rightArrow = document.getElementsByClassName('label__right-arrow')[0],
-    text_container = document.getElementsByClassName('label__text')[0],
-    text78 = document.getElementsByClassName('label__text-78')[0],
-    text33 = document.getElementsByClassName('label__text-33')[0];
+    label__SVGcontainer = document.getElementsByClassName('label__SVG-container')[0],
+    label__SVGimg1 = document.getElementsByClassName('label__SVG-img')[0],
+    label__SVGimg2 = document.getElementsByClassName('label__SVG-img')[1],
+    label__leftArrow = document.getElementsByClassName('label__left-arrow')[0],
+    label__rightArrow = document.getElementsByClassName('label__right-arrow')[0],
+    label__text = document.getElementsByClassName('label__text')[0],
+    label__text33 = document.getElementsByClassName('label__text-33')[0],
+    label__text78 = document.getElementsByClassName('label__text-78')[0];
 
   let
     isVinylRotating = true,
     selectedItem = document.getElementById('disc'),
     sliderTimer = null,
-    textWidth = text78.getBoundingClientRect().width,
+    textWidth = label__text78.getBoundingClientRect().width,
     speed = 78,
     transition = 300,
     delay = 3000,
@@ -44,7 +45,7 @@ window.addEventListener('load', () => {
     } else if (!isInViewport(vinyl) && isVinylRotating) {
       stopRotating();
     }
-    if (isInViewport(SVG_container) && !isLabelSpinning) spin();
+    if (isInViewport(label__SVGcontainer) && !isLabelSpinning) spin();
   });
 
   window.addEventListener('resize', () => {
@@ -54,52 +55,70 @@ window.addEventListener('load', () => {
     sliderTimer = setTimeout(sliderOpacity, 300);
   });
 
+  Array.from(img).forEach(i => {
+    i.addEventListener('mousedown', event => {
+      event.preventDefault();
+    });
+  });
+ 
   /********************************/
   /* cover vinyl & speed selector */
-  speedNumbers.addEventListener('click', event => {
+  speedSelector__numbers.addEventListener('click', event => {
     const target = event.target;
 
-    if (target.className == 'speed-selector__33') {
+    if (target.classList.contains('speed-selector__33')) {
       setSpeed(33);
-    } else if (target.className == 'speed-selector__45') {
+    } else if (target.classList.contains('speed-selector__45')) {
       setSpeed(45);
-    } else if (target.className == 'speed-selector__78') {
+    } else if (target.classList.contains('speed-selector__78')) {
       setSpeed(78);
     } else return;
   });
 
   function rotate() {
     isVinylRotating = true;
-    vinyl__shadow.style.animationPlayState = 'running';
-    vinyl__base.style.animationPlayState = 'running';
+    vinyl__shadow.classList.remove('vinyl_paused');
+    vinyl__base.classList.remove('vinyl_paused');
   }
 
   function stopRotating() {
     isVinylRotating = false;
-    vinyl__shadow.style.animationPlayState = 'paused';
-    vinyl__base.style.animationPlayState = 'paused';
+    vinyl__shadow.classList.add('vinyl_paused');
+    vinyl__base.classList.add('vinyl_paused');
   }
 
   function setSpeed(speed) {
     if (speed == 33) {
-      speedArrow.style.WebkitTransform = 'rotate(-45deg)';
-      speedArrow.style.transform = 'rotate(-45deg)';
-      vinyl__shadow.style.animationDuration = '1.818181s';
-      vinyl__base.style.animationDuration = '.9s';
+      speedSelector__arrow.classList.remove('speed-selector__arrow_45', 'speed-selector__arrow_78');
+      speedSelector__arrow.classList.add('speed-selector__arrow_33');
+
+      vinyl__shadow.classList.remove('vinyl__shadow_45', 'vinyl__shadow_78');
+      vinyl__shadow.classList.add('vinyl__shadow_33');
+
+      vinyl__base.classList.remove('vinyl__base_45', 'vinyl__base_78');
+      vinyl__base.classList.add('vinyl__base_33');
     } else if (speed == 45) {
-      speedArrow.style.WebkitTransform = 'rotate(-57.5deg)';
-      speedArrow.style.transform = 'rotate(-57.5deg)';
-      vinyl__shadow.style.animationDuration = '1.333333s';
-      vinyl__base.style.animationDuration = '.666666s';
+      speedSelector__arrow.classList.remove('speed-selector__arrow_33', 'speed-selector__arrow_78');
+      speedSelector__arrow.classList.add('speed-selector__arrow_45');
+      
+      vinyl__shadow.classList.remove('vinyl__shadow_33', 'vinyl__shadow_78');
+      vinyl__shadow.classList.add('vinyl__shadow_45');
+      
+      vinyl__base.classList.remove('vinyl__base_33', 'vinyl__base_78');
+      vinyl__base.classList.add('vinyl__base_45');
     } else if (speed == 78) {
-      speedArrow.style.WebkitTransform = 'rotate(-68deg)';
-      speedArrow.style.transform = 'rotate(-68deg)';
-      vinyl__shadow.style.animationDuration = '.769231s';
-      vinyl__base.style.animationDuration = '.384615s';
+      speedSelector__arrow.classList.remove('speed-selector__arrow_33', 'speed-selector__arrow_45');
+      speedSelector__arrow.classList.add('speed-selector__arrow_78');
+      
+      vinyl__shadow.classList.remove('vinyl__shadow_33', 'vinyl__shadow_45');
+      vinyl__shadow.classList.add('vinyl__shadow_78');
+      
+      vinyl__base.classList.remove('vinyl__base_33', 'vinyl__base_45');
+      vinyl__base.classList.add('vinyl__base_78');
     }
   }
-  /**********/
-  /* scheme */
+  /*********************/
+  /* third page scheme */
   if ('contentDocument' in scheme__svg) {
     const svgdom = scheme__svg.contentDocument;
 
@@ -116,12 +135,12 @@ window.addEventListener('load', () => {
       function select(node) {
         if (selectedItem) {
           let elementId = selectedItem.getAttribute('id');
-          svgdom.getElementById(elementId).setAttribute('class', 'scheme-path');
+          svgdom.getElementById(elementId).classList.remove('highlight');
         }
 
         selectedItem = node;
         let elementId = selectedItem.getAttribute('id');
-        svgdom.getElementById(elementId).setAttribute('class', 'scheme-path highlight');
+        svgdom.getElementById(elementId).classList.add('highlight');
 
         moveSlider(node);
       }
@@ -146,28 +165,28 @@ window.addEventListener('load', () => {
     if (op === undefined) op = '1';
     scheme__slider.style.opacity = op;
   }
-  /*********/
-  /* label */
-  SVG_img1.setAttribute('src', 'label__78-1.svg');
-  SVG_img2.setAttribute('src', 'label__78-2.svg');
+  /*********************/
+  /* fourth page label */
+  label__SVGimg1.setAttribute('src', 'label__78-1.svg');
+  label__SVGimg2.setAttribute('src', 'label__78-2.svg');
 
-  text_container.addEventListener('touchend', move, false);
-  text_container.addEventListener('touchstart', lock, false);
-  leftArrow.addEventListener('mousedown', slideToLeft, false);
-  rightArrow.addEventListener('mousedown', slideToRight, false);
+  label__text.addEventListener('touchend', move, false);
+  label__text.addEventListener('touchstart', lock, false);
+  label__leftArrow.addEventListener('mousedown', slideToLeft, false);
+  label__rightArrow.addEventListener('mousedown', slideToRight, false);
 
   function spin() {
     isLabelSpinning = true;
 
     animate(angle => {
-      SVG_img2.style.transform = 'rotate(' + (angle + (180 * turn)) + 'deg)';
-      SVG_img2.style.opacity = Math.abs(1 - turn - 1 / 180 * angle)
+      label__SVGimg2.style.transform = 'rotate(' + (angle + (180 * turn)) + 'deg)';
+      label__SVGimg2.style.opacity = Math.abs(1 - turn - 1 / 180 * angle)
 
-      SVG_img1.style.transform = 'rotate(' + (angle + (180 * turn) - 180) + 'deg)';
-      SVG_img1.style.opacity = Math.abs(turn - 1 / 180 * angle);
+      label__SVGimg1.style.transform = 'rotate(' + (angle + (180 * turn) - 180) + 'deg)';
+      label__SVGimg1.style.opacity = Math.abs(turn - 1 / 180 * angle);
     }, transition);
 
-    if (isInViewport(SVG_container)) {
+    if (isInViewport(label__SVGcontainer)) {
       timeout = setTimeout(spin, delay);
     } else {
       isLabelSpinning = false;
@@ -200,13 +219,13 @@ window.addEventListener('load', () => {
     if (turn === 0) {
       element2Img += 2;
       if (element2Img > 4) element2Img = 2;
-      SVG_img2.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
+      label__SVGimg2.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
     }
 
     if (turn == 1) {
       element1Img += 2;
       if (element1Img > 3) element1Img = 1;
-      SVG_img1.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
+      label__SVGimg1.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
     }
 
     turn++;
@@ -221,13 +240,13 @@ window.addEventListener('load', () => {
     const target = event.target;
     if (target.className == 'label__right-arrow' ||
       target.className == 'label__left-arrow') {
-      text_container.removeEventListener('touchmove', drag, false);
+      label__text.removeEventListener('touchmove', drag, false);
     }
 
     startX = unify(event).clientX;
     startY = unify(event).clientY;
-    textWidth = text78.getBoundingClientRect().width;
-    text_container.addEventListener('touchmove', drag, false);
+    textWidth = label__text78.getBoundingClientRect().width;
+    label__text.addEventListener('touchmove', drag, false);
   }
 
   function drag(event) {
@@ -273,68 +292,66 @@ window.addEventListener('load', () => {
       }
     }
 
-    text_container.removeEventListener('touchmove', drag, false);
+    label__text.removeEventListener('touchmove', drag, false);
   }
 
   function slideToLeft() {
-    text_container.removeEventListener('touchmove', drag, false);
+    label__text.removeEventListener('touchmove', drag, false);
     speed = 78;
     currentText = 0;
 
     if (turn === 0) {
-      SVG_img1.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
+      label__SVGimg1.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
     }
 
     if (turn == 1) {
-      SVG_img2.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
+      label__SVGimg2.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
     }
 
     clearTimeout(timeout);
     spin();
     translate('0');
 
-    leftArrow.style.opacity = '0';
-    leftArrow.style.zIndex = '-1';
-    leftArrow.style.cursor = 'default';
+    label__leftArrow.style.opacity = '0';
+    label__leftArrow.style.zIndex = '-1';
+    label__leftArrow.style.cursor = 'default';
 
-    rightArrow.style.opacity = '1';
-    rightArrow.style.zIndex = '1';
-    rightArrow.style.cursor = 'pointer';
-
+    label__rightArrow.style.opacity = '1';
+    label__rightArrow.style.zIndex = '1';
+    label__rightArrow.style.cursor = 'pointer';
   }
 
   function slideToRight() {
-    text_container.removeEventListener('touchmove', drag, false);
+    label__text.removeEventListener('touchmove', drag, false);
     speed = 33;
     currentText = 1;
 
     if (turn === 0) {
-      SVG_img1.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
+      label__SVGimg1.setAttribute('src', 'label__' + speed + '-' + element2Img + '.svg');
     }
 
     if (turn == 1) {
-      SVG_img2.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
+      label__SVGimg2.setAttribute('src', 'label__' + speed + '-' + element1Img + '.svg');
     }
 
     clearTimeout(timeout);
     spin();
-
     translate('-106');
 
-    leftArrow.style.opacity = '1';
-    leftArrow.style.zIndex = '1';
-    leftArrow.style.cursor = 'pointer';
+    label__leftArrow.style.opacity = '1';
+    label__leftArrow.style.zIndex = '1';
+    label__leftArrow.style.cursor = 'pointer';
 
-    rightArrow.style.opacity = '0';
-    rightArrow.style.zIndex = '-1';
-    rightArrow.style.cursor = 'default';
+    label__rightArrow.style.opacity = '0';
+    label__rightArrow.style.zIndex = '-1';
+    label__rightArrow.style.cursor = 'default';
   }
 
   function translate(percent) {
-    text78.style.WebkitTransform = 'translate(' + percent + '%)';
-    text78.style.transform = 'translate(' + percent + '%)';
-    text33.style.WebkitTransform = 'translate(' + percent + '%)';
-    text33.style.transform = 'translate(' + percent + '%)';
+    label__text78.style.WebkitTransform = 'translate(' + percent + '%)';
+    label__text78.style.transform = 'translate(' + percent + '%)';
+    label__text33.style.WebkitTransform = 'translate(' + percent + '%)';
+    label__text33.style.transform = 'translate(' + percent + '%)';
   }
   /*********/
   function isInViewport(object) {

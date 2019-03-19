@@ -4,14 +4,12 @@ body, p, div {
 img {
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 body {
   background-color: #fffef4;
 }
 .page {
-  display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -59,8 +57,6 @@ body {
   font-size: 7.5vh;
   -webkit-tap-highlight-color: transparent;
   color: #0f0f14;
-  -webkit-transform: rotate(34deg);
-  -webkit-transform-origin: center;
   transform: rotate(34deg);
   transform-origin: center;
 }
@@ -70,17 +66,13 @@ body {
   cursor: pointer;
 }
 .speed-selector__33 {
-  -webkit-transform: rotate(15deg);
-  -webkit-transform-origin: bottom right;
   transform: rotate(15deg);
   transform-origin: bottom right;
 }
 .speed-selector__45 {
-  margin: 0 4.5vh;
+  margin: 0 4.5vh ;
 }
 .speed-selector__78 {
-  -webkit-transform: rotate(-15deg);
-  -webkit-transform-origin: bottom left;
   transform: rotate(-15deg);
   transform-origin: bottom left;
 }
@@ -93,12 +85,17 @@ body {
   border: 3vh solid transparent;
   border-right: 62vh solid transparent;
   border-left: 14vh solid #008cdc;
-  -webkit-transform: rotate(-57.5deg);
-  -webkit-transform-origin: right;
-  -webkit-transition: transform .5s;
-  transform: rotate(-57.5deg);
   transform-origin: right;
   transition: transform .5s;
+}
+.speed-selector__arrow_33 {
+  transform: rotate(-45deg);
+}
+.speed-selector__arrow_45 {
+  transform: rotate(-57.5deg);
+}
+.speed-selector__arrow_78 {
+  transform: rotate(-68deg);
 }
 .cover__image {
   position: absolute;
@@ -151,22 +148,23 @@ body {
   height: 100%;
   top: 0;
   margin: 0;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
   border: 1.5vh solid #0f0f14;
   box-sizing: border-box;
   background:
-    -webkit-linear-gradient(65deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
-    -webkit-linear-gradient(75deg, transparent 40%, rgba(90, 80, 75, .2) 50%, transparent 60%) no-repeat 0 100%,
-    -webkit-linear-gradient(-15deg, transparent 40%, rgba(90, 80, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
-    -webkit-repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
-  background:
     linear-gradient(65deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 100% 0,
     linear-gradient(75deg, transparent 40%, rgba(70, 75, 75, .3) 50%, transparent 60%) no-repeat 0 100%,
     linear-gradient(-15deg, transparent 40%, rgba(70, 75, 75, .5) 50%, transparent 60%) no-repeat 0 100%,
-    repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #373c3c .4%, #000 .6%);
-  -webkit-animation: swing .666666s ease-in-out infinite alternate;
-  animation: swing .666666s ease-in-out infinite alternate;
+    repeating-radial-gradient(#000, #000 .2%, #373c3c .4%, #000 .6%);
+}
+.vinyl__base_33 {
+  animation: swing .9s linear infinite alternate;
+}
+.vinyl__base_45 {
+  animation: swing .666666s linear infinite alternate;
+}
+.vinyl__base_78 {
+  animation: swing .384615s linear infinite alternate;
 }
 .vinyl__shadow {
   display: -webkit-flex;
@@ -176,20 +174,21 @@ body {
   height: 100%;
   top: 0;
   margin: 0;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
-  background:
-    -webkit-linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-    -webkit-linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-    -webkit-linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
-    -webkit-linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
   background:
     linear-gradient(55deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
     linear-gradient(65deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
     linear-gradient(75deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%),
     linear-gradient(85deg, transparent 43%, rgba(0, 0, 0, .1) 50%, transparent 57%);
-  -webkit-animation: rotate 1.333333s linear infinite;
+}
+.vinyl__shadow_33 {
+  animation: rotate 1.818181s linear infinite;
+}
+.vinyl__shadow_45 {
   animation: rotate 1.333333s linear infinite;
+}
+.vinyl__shadow_78 {
+  animation: rotate .769231s linear infinite;
 }
 .vinyl__label {
   position: relative;
@@ -197,27 +196,21 @@ body {
   box-sizing: border-box;
   width: 35%;
   height: 35%;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
   border: 5vh solid #0f0f14;
   background: url(lemz.svg) no-repeat 80% 20%, #008cdc;
   background-size: 50%;
 }
-@-webkit-keyframes swing {
-  0% { -webkit-transform:rotate(-1deg); transform:rotate(-1deg); }
-  100% { -webkit-transform:rotate(1deg); transform:rotate(1deg); }
-}
-@-webkit-keyframes rotate {
-  0% { -webkit-transform:rotate(0deg); transform:rotate(0deg); }
-  100% { -webkit-transform:rotate(360deg); transform:rotate(360deg); }
+.vinyl_paused {
+  animation-play-state: paused;
 }
 @keyframes swing {
-  0% { -webkit-transform:rotate(-1deg); transform:rotate(-1deg); }
-  100% { -webkit-transform:rotate(1deg);  transform:rotate(1deg); }
+  0% { transform:rotate(-1deg); }
+  100% { transform:rotate(1deg); }
 }
 @keyframes rotate {
-  0% { -webkit-transform:rotate(0deg); transform:rotate(0deg); }
-  100% { -webkit-transform:rotate(360deg); transform:rotate(360deg); }
+  0% { transform:rotate(0deg); }
+  100% { transform:rotate(360deg); }
 }
 .first {
   height: 100vh;
@@ -262,9 +255,7 @@ body {
   height: 0;
   opacity: 0;
   border: .05em solid #0f0f14;
-  -webkit-border-radius: .3em;
   border-radius: .3em;
-  -webkit-transition: top .2s, left .2s, width .2s, height .2s;
   transition: top .2s, left .2s, width .2s, height .2s;
 }
 .label {
@@ -287,12 +278,10 @@ body {
   left: 0;
   width: 100%;
   height: 200%;
-  -webkit-border-radius: 100%;
   border-radius: 100%;
 }
 .label__text {
   position: relative;
-  display: -webkit-flex;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -312,7 +301,6 @@ body {
   position: absolute;
   font: 2em Georgia, serif;
   text-align: center;
-  -webkit-transition: opacity .2s ease-out;
   transition: opacity .2s ease-out;
 }
 .label__text-33 {
@@ -320,7 +308,6 @@ body {
   width: 93%;
   margin: auto 0 auto 6%;
   text-align: left;
-  -webkit-transition: transform .2s ease-in-out;
   transition: transform .2s ease-in-out;
 }
 .label__text-78 {
@@ -328,7 +315,6 @@ body {
   width: 93%;
   margin: auto 6% auto 0;
   text-align: left;
-  -webkit-transition: transform .2s ease-in-out;
   transition: transform .2s ease-in-out;
 }
 .fifth__instructions {
