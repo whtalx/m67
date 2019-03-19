@@ -279,6 +279,21 @@ body {
   width: 100%;
   height: 200%;
   border-radius: 100%;
+  opacity: 1;
+  transform-origin: center;
+  animation: spin_up .4s linear forwards;
+  /* transition: transform .3s linear, opacity .3s linear; */
+}
+.label__SVG-img_down {
+  animation: spin_down .4s linear forwards;
+}
+@keyframes spin_up {
+  0% { transform: rotate(-180deg); opacity: 0; }
+  100% { transform: rotate(0deg); opacity: 1; }
+}
+@keyframes spin_down {
+  0% { transform: rotate(0deg); opacity: 1; }
+  100% { transform: rotate(180deg); opacity: 0; }
 }
 .label__text {
   position: relative;
@@ -288,19 +303,23 @@ body {
   width: 100%;
   margin: auto;
 }
-.label__left-arrow {
+.label__arrow-left {
   left: 0;
+}
+.label__arrow-right {
+  right: 0;
+}
+.label__arrow_hidden {
   opacity: 0;
+  z-index: -1;
   cursor: default;
 }
-.label__right-arrow {
-  right: 0;
-  cursor: pointer;
-}
-.label__left-arrow, .label__right-arrow {
+
+.label__arrow-left, .label__arrow-right {
   position: absolute;
   font: 2em Georgia, serif;
   text-align: center;
+  cursor: pointer;
   transition: opacity .2s ease-out;
 }
 .label__text-33 {
@@ -308,14 +327,14 @@ body {
   width: 93%;
   margin: auto 0 auto 6%;
   text-align: left;
-  transition: transform .2s ease-in-out;
+  transition: transform .4s ease-in-out;
 }
 .label__text-78 {
   min-width: 93%;
   width: 93%;
   margin: auto 6% auto 0;
   text-align: left;
-  transition: transform .2s ease-in-out;
+  transition: transform .4s ease-in-out;
 }
 .fifth__instructions {
   width: 60%;
