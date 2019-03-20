@@ -29,14 +29,14 @@ window.addEventListener('load', () => {
     labelTurn = 0,
     labelTimer = null,
     labelElement1Img = 1, //cycles between 1 and 3, odd only
-    labelElement2Img = 0, //cycles between 2 and 4, even only
-    isLabelSpinning = false,
+    labelElement2Img = 4, //cycles between 2 and 4, even only
     labelCurrentText = 0,
     labelStartX = null,
     labelStartY = null,
     labelAbsX = null,
     labelAbsY = null,
-    labelSwipe = null;
+    labelSwipe = null,
+    isLabelSpinning = false;
 
   window.addEventListener('scroll', () => {
     if (isInViewport(vinyl) && !isVinylRotating) {
@@ -199,16 +199,20 @@ window.addEventListener('load', () => {
   }
 
   function changeImg() {
-    if (labelTurn === 0) {
+    if (labelTurn == 1) {
       labelElement2Img += 2;
       if (labelElement2Img > 4) labelElement2Img = 2;
-      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
+      label__SVGimg2.addEventListener("animationend", event => {
+        event.target.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
+      });
     }
 
-    if (labelTurn == 1) {
+    if (labelTurn === 0) {
       labelElement1Img += 2;
       if (labelElement1Img > 3) labelElement1Img = 1;
-      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
+      label__SVGimg1.addEventListener("animationend", event => {
+        event.target.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
+      });
     }
 
     labelTurn++;
@@ -283,12 +287,12 @@ window.addEventListener('load', () => {
     labelSpeed = 78;
     labelCurrentText = 0;
 
-    if (labelTurn === 1) {
-      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
+    if (labelTurn === 0) {
+      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
     }
 
-    if (labelTurn == 0) {
-      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
+    if (labelTurn == 1) {
+      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
     }
 
     clearTimeout(labelTimer);
@@ -304,12 +308,12 @@ window.addEventListener('load', () => {
     labelSpeed = 33;
     labelCurrentText = 1;
 
-    if (labelTurn === 1) {
-      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
+    if (labelTurn === 0) {
+      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
     }
 
-    if (labelTurn == 0) {
-      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
+    if (labelTurn == 1) {
+      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
     }
 
     clearTimeout(labelTimer);
