@@ -297,11 +297,32 @@ body {
 }
 .label__text {
   position: relative;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
   width: 100%;
   margin: auto;
+  overflow-x: hidden;
+}
+.label__text-holder {
+  position: relative;
+  width: 200%;
+}
+.label__text-holder_animate {
+  transition: transform .3s ease-out;
+}
+.label__text-33 {
+  float: right;
+  padding-left: 1em;
+}
+.label__text-78 {
+  float: left;
+  padding-right: 1em;
+}
+.label__text-33, .label__text-78 {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
 .label__arrow-left {
   left: 0;
@@ -309,32 +330,20 @@ body {
 .label__arrow-right {
   right: 0;
 }
-.label__arrow_hidden {
-  opacity: 0;
-  z-index: -1;
-  cursor: default;
-}
-
 .label__arrow-left, .label__arrow-right {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
   font: 2em Georgia, serif;
   text-align: center;
   cursor: pointer;
   transition: opacity .2s ease-out;
 }
-.label__text-33 {
-  min-width: 93%;
-  width: 93%;
-  margin: auto 0 auto 6%;
-  text-align: left;
-  transition: transform .4s ease-in-out;
-}
-.label__text-78 {
-  min-width: 93%;
-  width: 93%;
-  margin: auto 6% auto 0;
-  text-align: left;
-  transition: transform .4s ease-in-out;
+.label__arrow_hidden {
+  opacity: 0;
+  z-index: -1;
+  cursor: default;
 }
 .fifth__instructions {
   width: 60%;

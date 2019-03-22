@@ -16,6 +16,7 @@ window.addEventListener('load', () => {
     label__leftArrow = document.getElementsByClassName('label__arrow-left')[0],
     label__rightArrow = document.getElementsByClassName('label__arrow-right')[0],
     label__text = document.getElementsByClassName('label__text')[0],
+    label__holder = document.getElementsByClassName('label__text-holder')[0],
     label__text33 = document.getElementsByClassName('label__text-33')[0],
     label__text78 = document.getElementsByClassName('label__text-78')[0];
 
@@ -23,19 +24,18 @@ window.addEventListener('load', () => {
     isVinylRotating = true,
     schemeSelectedItem = document.getElementById('disc'),
     schemeTimer = null,
-    labelTextWidth = label__text78.getBoundingClientRect().width,
     labelSpeed = 78,
     labelDelay = 4000,
     labelTurn = 0,
     labelTimer = null,
     labelElement1Img = 1, //cycles between 1 and 3, odd only
     labelElement2Img = 4, //cycles between 2 and 4, even only
+    labelTextWidth = label__text.getBoundingClientRect().width,
+    labelTouchStartX = undefined,
+    labelTouchMoveX = undefined,
+    labelMoveX = undefined,
     labelCurrentText = 0,
-    labelStartX = null,
-    labelStartY = null,
-    labelAbsX = null,
-    labelAbsY = null,
-    labelSwipe = null,
+    labelLastText = 0,
     isLabelSpinning = false;
 
   window.addEventListener('scroll', () => {
@@ -56,6 +56,10 @@ window.addEventListener('load', () => {
     sliderOpacity('0');
     moveSlider(schemeSelectedItem);
     schemeTimer = setTimeout(sliderOpacity, 300);
+
+    labelTextWidth = label__text.getBoundingClientRect().width;
+    label__holder.classList.remove('label__text-holder_animate');
+    label__holder.style.transform = 'translateX(-' + labelCurrentText*labelTextWidth + 'px)';
   });
 
   Array.from(img).forEach(i => {
@@ -173,10 +177,10 @@ window.addEventListener('load', () => {
   label__SVGimg1.setAttribute('src', 'label__78-1.svg');
   label__SVGimg2.setAttribute('src', 'label__78-2.svg');
 
-  label__text.addEventListener('touchend', move, false);
-  label__text.addEventListener('touchstart', lock, false);
-  label__leftArrow.addEventListener('mousedown', slideToLeft, false);
-  label__rightArrow.addEventListener('mousedown', slideToRight, false);
+  label__holder.addEventListener('touchstart', touchStart);
+  label__holder.addEventListener('touchmove', touchMove);
+  label__holder.addEventListener('touchend', touchEnd);
+  label__rightArrow.addEventListener('mousedown', switchText);
 
   function spin() {
     isLabelSpinning = true;
@@ -219,70 +223,79 @@ window.addEventListener('load', () => {
     if (labelTurn > 1) labelTurn = 0;
   }
 
-  function unify(event) {
-    return event.changedTouches ? event.changedTouches[0] : event;
+  function touchStart(event) {
+    labelTouchStartX =  event.touches[0].pageX;
+    label__holder.classList.remove('label__text-holder_animate');
   }
 
-  function lock(event) {
-    const target = event.target;
-    if (target.className == 'label__right-arrow' ||
-      target.className == 'label__left-arrow') {
-      label__text.removeEventListener('touchmove', drag, false);
-    }
-
-    labelStartX = unify(event).clientX;
-    labelStartY = unify(event).clientY;
-    labelTextWidth = label__text78.getBoundingClientRect().width;
-    label__text.addEventListener('touchmove', drag, false);
-  }
-
-  function drag(event) {
-    labelAbsX = Math.abs(unify(event).clientX - labelStartX);
-    labelAbsY = Math.abs(unify(event).clientY - labelStartY);
-    labelSwipe = (unify(event).clientX - labelStartX) / labelTextWidth * 100;
-
-    if (labelAbsX <= labelAbsY) return;
-
-    else if (labelAbsX > labelAbsY) {
-
-      event.preventDefault();
-
-      if (labelSwipe > 0 && labelCurrentText == 1) translate('-' + (106 - labelSwipe));
-      if (labelSwipe < 0 && labelCurrentText === 0) translate(labelSwipe);
+  function touchMove(event) {
+    labelTouchMoveX =  event.touches[0].pageX;
+    labelMoveX = labelCurrentText * labelTextWidth + (labelTouchStartX - labelTouchMoveX);
+    if (labelMoveX < labelTextWidth) {
+      label__holder.style.transform = 'translateX(-' + labelMoveX + 'px)';
     }
   }
 
-  function move(event) {
-    if (Math.abs(labelSwipe) < 16) {
-      if (labelCurrentText == 1) translate('-106');
-      if (labelCurrentText === 0) translate('0');
-    }
-
-    if ((labelStartX || labelStartX === 0) && (labelStartY || labelStartY === 0)) {
-      labelAbsX = Math.abs(unify(event).clientX - labelStartX);
-      labelAbsY = Math.abs(unify(event).clientY - labelStartY);
-
-      if (labelAbsX > labelAbsY) {
-        event.preventDefault();
-        let deltaX = unify(event).clientX - labelStartX;
-
-        if (Math.abs(labelSwipe) < 24) {
-          if (labelCurrentText == 1) translate('-106');
-          if (labelCurrentText === 0) translate('0');
-        } else if (deltaX < 0 && labelCurrentText === 0) {
-          slideToRight();
-        } else if (deltaX > 0 && labelCurrentText == 1) {
-          slideToLeft();
-        }
-
-        labelStartX = null;
+  function touchEnd() {
+    let absMove = Math.abs(labelCurrentText * labelTextWidth - labelMoveX);
+    if (absMove > labelTextWidth/2) {
+      if (labelMoveX > labelCurrentText * labelTextWidth && labelCurrentText === 0) {
+        labelLastText = labelCurrentText;
+        labelCurrentText = 1;
+      } else if (labelMoveX < labelCurrentText*labelTextWidth && labelCurrentText == 1) {
+        labelLastText = labelCurrentText;
+        labelCurrentText = 0;
       }
+    } else {
+      labelLastText = labelCurrentText;
     }
-
-    label__text.removeEventListener('touchmove', drag, false);
+    
+    swipeText();
+    if (labelLastText !== labelCurrentText) switchSpeed(labelCurrentText);
   }
 
-  function slideToLeft() {
+  function swipeText() {
+    label__holder.classList.add('label__text-holder_animate');
+    label__holder.style.transform = 'translateX(-' + labelCurrentText*labelTextWidth + 'px)';
+  }
+
+  function switchText() {
+    if (labelCurrentText === 0) {
+      labelLastText = labelCurrentText;
+      labelCurrentText = 1;
+    } else if (labelCurrentText == 1) {
+      labelLastText = labelCurrentText;
+      labelCurrentText = 0;
+    }
+
+    swipeText();
+    switchSpeed(labelCurrentText);
+  }
+
+  function switchSpeed(num) {
+    if (num === 0) {
+      labelSpeed = 78;
+      label__leftArrow.removeEventListener('mousedown', switchText);
+      label__rightArrow.addEventListener('mousedown', switchText);
+    } else if (num == 1) {
+      labelSpeed = 33;
+      label__leftArrow.addEventListener('mousedown', switchText);
+      label__rightArrow.removeEventListener('mousedown', switchText);
+    }
+
+    if (labelTurn === 0) {
+      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
+    } else if (labelTurn == 1) {
+      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
+    }
+
+    clearTimeout(labelTimer);
+    spin();
+
+    label__leftArrow.classList.toggle('label__arrow_hidden');
+    label__rightArrow.classList.toggle('label__arrow_hidden');
+  }
+  /* function slideToLeft() {
     label__text.removeEventListener('touchmove', drag, false);
     labelSpeed = 78;
     labelCurrentText = 0;
@@ -327,7 +340,7 @@ window.addEventListener('load', () => {
   function translate(percent) {
     label__text78.style.transform = 'translate(' + percent + '%)';
     label__text33.style.transform = 'translate(' + percent + '%)';
-  }
+  } */
   /*********/
   function isInViewport(object) {
     const box = object.getBoundingClientRect();
