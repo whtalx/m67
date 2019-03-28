@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 window.addEventListener('load', () => {
   const
     img = document.getElementsByTagName('IMG'),
@@ -16,9 +16,7 @@ window.addEventListener('load', () => {
     label__leftArrow = document.getElementsByClassName('label__arrow-left')[0],
     label__rightArrow = document.getElementsByClassName('label__arrow-right')[0],
     label__text = document.getElementsByClassName('label__text')[0],
-    label__holder = document.getElementsByClassName('label__text-holder')[0],
-    label__text33 = document.getElementsByClassName('label__text-33')[0],
-    label__text78 = document.getElementsByClassName('label__text-78')[0];
+    label__holder = document.getElementsByClassName('label__text-holder')[0];
 
   let
     isVinylRotating = true,
@@ -48,6 +46,11 @@ window.addEventListener('load', () => {
       spin();
     } else if (!isInViewport(label__SVGcontainer) && isLabelSpinning) {
       stopSpinning();
+    }
+    if (isInViewport(label__rightArrow) && !label__rightArrow.classList.contains('label__arrow_animated')) {
+      label__rightArrow.classList.add('label__arrow_animated')
+    } else if (!isInViewport(label__rightArrow) && label__rightArrow.classList.contains('label__arrow_animated')) {
+      label__rightArrow.classList.remove('label__arrow_animated')
     }
   });
 
@@ -206,7 +209,7 @@ window.addEventListener('load', () => {
     if (labelTurn == 1) {
       labelElement2Img += 2;
       if (labelElement2Img > 4) labelElement2Img = 2;
-      label__SVGimg2.addEventListener("animationend", event => {
+      label__SVGimg2.addEventListener('animationend', event => {
         event.target.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
       });
     }
@@ -214,7 +217,7 @@ window.addEventListener('load', () => {
     if (labelTurn === 0) {
       labelElement1Img += 2;
       if (labelElement1Img > 3) labelElement1Img = 1;
-      label__SVGimg1.addEventListener("animationend", event => {
+      label__SVGimg1.addEventListener('animationend', event => {
         event.target.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
       });
     }
@@ -238,7 +241,7 @@ window.addEventListener('load', () => {
 
   function touchEnd() {
     let absMove = Math.abs(labelCurrentText * labelTextWidth - labelMoveX);
-    if (absMove > labelTextWidth/2) {
+    if (absMove > labelTextWidth / 2) {
       if (labelMoveX > labelCurrentText * labelTextWidth && labelCurrentText === 0) {
         labelLastText = labelCurrentText;
         labelCurrentText = 1;
@@ -295,52 +298,6 @@ window.addEventListener('load', () => {
     label__leftArrow.classList.toggle('label__arrow_hidden');
     label__rightArrow.classList.toggle('label__arrow_hidden');
   }
-  /* function slideToLeft() {
-    label__text.removeEventListener('touchmove', drag, false);
-    labelSpeed = 78;
-    labelCurrentText = 0;
-
-    if (labelTurn === 0) {
-      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
-    }
-
-    if (labelTurn == 1) {
-      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
-    }
-
-    clearTimeout(labelTimer);
-    spin();
-    translate('0');
-
-    label__leftArrow.classList.toggle('label__arrow_hidden');
-    label__rightArrow.classList.toggle('label__arrow_hidden');
-  }
-
-  function slideToRight() {
-    label__text.removeEventListener('touchmove', drag, false);
-    labelSpeed = 33;
-    labelCurrentText = 1;
-
-    if (labelTurn === 0) {
-      label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
-    }
-
-    if (labelTurn == 1) {
-      label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
-    }
-
-    clearTimeout(labelTimer);
-    spin();
-    translate('-106');
-
-    label__leftArrow.classList.toggle('label__arrow_hidden');
-    label__rightArrow.classList.toggle('label__arrow_hidden');
-  }
-
-  function translate(percent) {
-    label__text78.style.transform = 'translate(' + percent + '%)';
-    label__text33.style.transform = 'translate(' + percent + '%)';
-  } */
   /*********/
   function isInViewport(object) {
     const box = object.getBoundingClientRect();

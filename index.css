@@ -330,10 +330,13 @@ body {
 .label__arrow-right {
   right: 0;
 }
+.label__arrow_animated {
+  animation: beat 2s linear 4 alternate;
+}
 .label__arrow-left, .label__arrow-right {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(5%, -50%);
   z-index: 1;
   font: 2em Georgia, serif;
   text-align: center;
@@ -344,6 +347,14 @@ body {
   opacity: 0;
   z-index: -1;
   cursor: default;
+  animation-play-state: paused;
+}
+@keyframes beat {
+  0% {transform: translate(5%, -50%)}
+  85% {transform: translate(5%, -50%)}
+  90% {transform: translate(20%, -50%)}
+  95% {transform: translate(5%, -50%)}
+  100% {transform: translate(5%, -50%)}
 }
 .fifth__instructions {
   width: 60%;
