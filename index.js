@@ -186,7 +186,7 @@ window.addEventListener('load', () => {
   label__rightArrow.addEventListener('mousedown', switchText);
 
   function spin() {
-    isLabelSpinning = true;
+    if(!isLabelSpinning) isLabelSpinning = true;
 
     label__SVGimg1.classList.toggle('label__SVG-img_down');
     label__SVGimg2.classList.toggle('label__SVG-img_down');
@@ -209,17 +209,17 @@ window.addEventListener('load', () => {
     if (labelTurn == 1) {
       labelElement2Img += 2;
       if (labelElement2Img > 4) labelElement2Img = 2;
-      label__SVGimg2.addEventListener('animationend', event => {
-        event.target.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
-      });
+      setTimeout(() => {
+        label__SVGimg2.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement2Img + '.svg');
+      }, 500);
     }
 
     if (labelTurn === 0) {
       labelElement1Img += 2;
       if (labelElement1Img > 3) labelElement1Img = 1;
-      label__SVGimg1.addEventListener('animationend', event => {
-        event.target.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
-      });
+      setTimeout(() => {
+        label__SVGimg1.setAttribute('src', 'label__' + labelSpeed + '-' + labelElement1Img + '.svg');
+      }, 500);
     }
 
     labelTurn++;
